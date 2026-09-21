@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratorium IPA SMPN 34 Surabaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    color-scheme: light dark;
+    --navy-950:#072B4D;
+    --navy-900:#092D4E;
+    --blue-700:#1568B4;
+    --blue-500:#0179C2;
+    --blue-600:#0168A8;
+    --blue-300:#89C6FF;
+    --blue-200:#A6D4FF;
+
+    --sheet:#ffffff;
+    --panel:#EAF5FF;
+    --panel-strong:#D0E4F7;
+    --field:#EAF1F7;
+    --card:#ffffff;
+    --text:#1c2b3a;
+    --text-soft:#3d4854;
+    --muted:#65707c;
+    --title:#072B4D;
+    --line:#D0E4F7;
+    --accent:#0179C2;
+    --accent-hover:#0168A8;
+
+    --ok-bg:#E1F4E8;   --ok-fg:#12693a;
+    --warn-bg:#FFF1D2; --warn-fg:#7a4b00;
+    --bad-bg:#FCE3E1;  --bad-fg:#a3231b;
+    --neutral-bg:#E3ECF5; --neutral-fg:#2d4256;
+
+    --radius:14px;
+    --font-body:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    --font-title:'Bebas Neue','Arial Narrow',Impact,sans-serif;
+
+    --photo-a:url("assets/images/hero.jpg");
+    --photo-b:url("assets/images/lab.jpg");
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --sheet:#0e1a29;
+      --panel:#152740;
+      --panel-strong:#1b3352;
+      --field:#1d3450;
+      --card:#12233a;
+      --text:#dbe7f3;
+      --text-soft:#b9c9da;
+      --muted:#93a4b6;
+      --title:#cfe5fb;
+      --line:#274262;
+      --accent:#2a95dc;
+      --accent-hover:#48a6e6;
+      --ok-bg:#15382a;   --ok-fg:#8fe0b1;
+      --warn-bg:#40300f; --warn-fg:#f3cf85;
+      --bad-bg:#45201e;  --bad-fg:#ffb3ad;
+      --neutral-bg:#233a54; --neutral-fg:#c3d6ea;
+    }
+  }
+  :root[data-theme="dark"]{
+    --sheet:#0e1a29;
+    --panel:#152740;
+    --panel-strong:#1b3352;
+    --field:#1d3450;
+    --card:#12233a;
+    --text:#dbe7f3;
+    --text-soft:#b9c9da;
+    --muted:#93a4b6;
+    --title:#cfe5fb;
+    --line:#274262;
+    --accent:#2a95dc;
+    --accent-hover:#48a6e6;
+    --ok-bg:#15382a;   --ok-fg:#8fe0b1;
+    --warn-bg:#40300f; --warn-fg:#f3cf85;
+    --bad-bg:#45201e;  --bad-fg:#ffb3ad;
+    --neutral-bg:#233a54; --neutral-fg:#c3d6ea;
+  }
+
+  /* ============ BASE ============ */
+  *,*::before,*::after{box-sizing:border-box;}
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{
+    min-height:100%;
+    background:#0d4f8f;
+    scroll-behavior:smooth;
+    scroll-padding-top:calc(96px + env(safe-area-inset-top,0px));
+  }
+  body{
+    margin:0;min-height:100%;
+    display:flex;flex-direction:column;
+    font-family:var(--font-body);
+    font-size:15px;line-height:1.6;
+    color:var(--text);
+    background:var(--blue-700);
+    -webkit-text-size-adjust:100%;
+  }
+  img{max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button,input,select,textarea{font-family:inherit;}
+  .hidden{display:none !important;}
+  .wrap{max-width:1104px;margin:0 auto;padding:0 24px;}
+  :focus-visible{outline:3px solid var(--blue-300);outline-offset:2px;}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;animation:none !important;}
+  }
+
+  /* ============ NAVBAR ============ */
+  .nav-shell{
+    position:fixed;top:0;left:0;right:0;z-index:40;
+    padding:calc(16px + env(safe-area-inset-top,0px)) 16px 0;
+    pointer-events:none;
+  }
+  .navbar{
+    pointer-events:auto;position:relative;
+    max-width:1004px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:12px 34px 12px 56px;
+    border-radius:999px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.38);
+    backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);
+    box-shadow:0 8px 30px rgba(4,24,48,.18);
+    transition:background .25s ease,border-color .25s ease;
+  }
+  .navbar.scrolled{background:rgba(9,45,78,.84);border-color:rgba(255,255,255,.18);}
+  .brand{color:#fff;line-height:1.15;white-space:nowrap;}
+  .brand strong{display:block;font-size:19px;font-weight:700;letter-spacing:.3px;}
+  .brand span{display:block;font-size:11.5px;font-weight:500;opacity:.92;}
+  .nav-links{display:flex;align-items:center;gap:6px;}
+  .nav-links a{
+    position:relative;color:#fff;font-size:14px;font-weight:600;
+    padding:9px 14px;border-radius:999px;white-space:nowrap;
+    transition:background .15s ease;
+  }
+  .nav-links a:hover{background:rgba(255,255,255,.14);}
+  .nav-links a.active{background:rgba(255,255,255,.24);}
+  .nav-links a.active::after{
+    content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;border-radius:2px;background:#fff;
+  }
+  .nav-toggle{
+    display:none;width:42px;height:42px;border:none;border-radius:50%;
+    background:rgba(255,255,255,.18);color:#fff;cursor:pointer;
+    align-items:center;justify-content:center;
+  }
+  .nav-toggle svg{display:block;}
+  @media (max-width:860px){
+    .navbar{padding:10px 12px 10px 24px;}
+    .nav-toggle{display:inline-flex;}
+    .nav-links{
+      position:absolute;top:calc(100% + 10px);left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:2px;padding:10px;
+      background:rgba(9,45,78,.94);border:1px solid rgba(255,255,255,.16);border-radius:22px;
+      backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      opacity:0;visibility:hidden;transform:translateY(-8px);
+      transition:opacity .18s ease,transform .18s ease,visibility .18s;
+    }
+    .nav-links.open{opacity:1;visibility:visible;transform:none;}
+    .nav-links a{padding:13px 16px;border-radius:14px;}
+    .nav-links a.active::after{display:none;}
+  }
+
+  /* ============ HERO / GATE ============ */
+  .hero{
+    position:relative;overflow:hidden;isolation:isolate;
+    flex:1 0 auto;min-height:760px;
+    margin-bottom:-28px;
+    padding:150px 20px 84px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:#fff;text-align:center;
+  }
+  .hero-bg{
+    position:absolute;inset:-40px;z-index:-2;
+    background:var(--photo-a) center 60%/cover no-repeat;
+    filter:blur(15px) saturate(1.15);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(185deg,rgba(35,118,196,.80) 0%,rgba(17,79,140,.86) 55%,rgba(9,45,78,.92) 100%);
+  }
+  .hero h1{
+    margin:0 auto 44px;max-width:780px;
+    font-size:clamp(26px,4.4vw,42px);line-height:1.25;font-weight:700;
+    text-shadow:0 2px 18px rgba(4,24,48,.35);
+  }
+  .gate-card{
+    width:100%;max-width:830px;text-align:left;
+    background:var(--card);color:var(--text);
+    border-radius:28px;overflow:hidden;
+    box-shadow:0 26px 60px rgba(4,24,48,.38);
+  }
+  .gate-body{
+    display:grid;grid-template-columns:1fr 232px;gap:32px;
+    padding:32px 32px 30px;
+  }
+  .gate-body h2{
+    margin:0 0 18px;font-size:clamp(20px,2.6vw,25px);line-height:1.3;font-weight:700;color:var(--text);
+  }
+  .field{margin-bottom:14px;}
+  .field label{display:block;margin-bottom:8px;font-size:16px;font-weight:600;color:var(--text-soft);}
+  .field input{
+    width:100%;border:2px solid transparent;border-radius:12px;background:var(--field);
+    padding:14px 18px;font-size:16px;color:var(--text);
+  }
+  .field input::placeholder{color:var(--muted);}
+  .field input:focus{outline:none;border-color:var(--accent);}
+  .btn-primary{
+    display:inline-flex;align-items:center;justify-content:center;
+    border:none;border-radius:12px;background:var(--accent);color:#fff;
+    font-weight:700;font-size:16px;padding:14px 22px;cursor:pointer;
+    transition:background .15s ease;
+  }
+  .btn-primary:hover{background:var(--accent-hover);}
+  .btn-primary.block{width:100%;margin-top:6px;}
+  .btn-primary:disabled{opacity:.6;cursor:default;}
+  .gate-hint{margin:10px 0 0;min-height:1.4em;font-size:13px;font-weight:600;color:#c0392b;}
+  .gate-photo{
+    border-radius:22px;min-height:260px;
+    background:var(--photo-a) 72% center/cover no-repeat,var(--field);
+  }
+  .gate-note{
+    display:flex;align-items:center;gap:12px;
+    margin:0;padding:17px 32px;background:var(--field);
+    font-size:14.5px;font-weight:600;color:var(--text-soft);
+  }
+  .gate-note svg{flex:0 0 auto;}
+  .welcome-sub{margin:0 0 24px;color:var(--text-soft);font-size:16px;}
+  .welcome-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;}
+  .link-btn{
+    border:none;background:none;padding:6px 2px;cursor:pointer;
+    font-size:14px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+  }
+  @media (max-width:720px){
+    .hero{padding-top:128px;min-height:640px;}
+    .gate-body{grid-template-columns:1fr;padding:24px 22px;}
+    .gate-photo{display:none;}
+    .gate-note{padding:15px 22px;font-size:13.5px;}
+  }
+
+  /* ============ SHEETS & SECTIONS ============ */
+  .site{position:relative;z-index:1;flex:0 0 auto;}
+  .sheet{background:var(--sheet);position:relative;}
+  .sheet-top{border-radius:28px 28px 0 0;}
+  .sheet-bottom{border-radius:28px 28px 28px 28px;margin:-28px 0 40px;position:relative;z-index:1;}
+  .section{padding:72px 0;}
+  .divider{
+    height:3px;border:0;margin:0 auto;max-width:1056px;background:var(--blue-500);border-radius:2px;
+  }
+  .sheet-top > .divider:first-child{margin-top:0;}
+  .section-title{
+    margin:0 0 8px;text-align:center;
+    font-family:var(--font-title);font-weight:400;letter-spacing:.5px;line-height:1;
+    font-size:clamp(46px,7vw,68px);color:var(--title);
+  }
+  .section-sub{
+    margin:0 0 36px;text-align:center;font-weight:700;
+    font-size:clamp(17px,2.4vw,24px);color:var(--title);
+  }
+
+  /* ---------- Home ---------- */
+  .profile{
+    display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:32px;
+    background:var(--panel);border-radius:var(--radius);padding:44px 44px;
+  }
+  .profile-photo{
+    border-radius:12px;min-height:420px;
+    background:var(--photo-b) center/cover no-repeat,var(--card);
+  }
+  .profile-text h3{margin:0 0 14px;font-size:22px;font-weight:700;color:var(--title);}
+  .profile-text p{margin:0 0 14px;font-size:15px;line-height:1.75;color:var(--text-soft);}
+  .profile-text p:last-child{margin-bottom:0;}
+  .profile-side{display:flex;flex-direction:column;gap:22px;}
+  .profile-side .photo{
+    flex:0 0 auto;aspect-ratio:369/229;border-radius:12px;
+    background:var(--photo-a) center/cover no-repeat,var(--card);
+  }
+  .info-card{
+    flex:1;background:var(--card);border-radius:12px;padding:20px 22px;
+  }
+  .info-card h4{margin:0 0 12px;font-size:15px;font-weight:700;color:var(--title);}
+  .info-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:13.5px;}
+  .info-card dt{font-weight:600;color:var(--muted);}
+  .info-card dd{margin:0;color:var(--text);}
+  @media (max-width:980px){
+    .profile{grid-template-columns:1fr 1fr;padding:32px;}
+    .profile-text{grid-column:1 / -1;order:3;}
+    .profile-photo{min-height:320px;}
+  }
+  @media (max-width:560px){
+    .profile{grid-template-columns:1fr;padding:20px;gap:22px;}
+    .profile-text{order:0;}
+    .profile-photo{order:-1;min-height:260px;}
+  }
+
+  /* ---------- Struktur ---------- */
+  .org-figure{margin:0 0 40px;}
+  .org-figure:last-child{margin-bottom:0;}
+  .org-figure img{display:block;width:100%;height:auto;border-radius:14px;}
+  .struktur-title{margin-bottom:36px;}
+
+  /* ---------- Peminjaman ---------- */
+  .table-wrap{
+    background:var(--panel);border-radius:var(--radius);padding:20px;
+  }
+  .table-scroll{overflow-x:auto;border-radius:10px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;min-width:680px;font-size:13.5px;}
+  thead th{
+    text-align:left;background:var(--panel-strong);color:var(--title);
+    padding:13px 16px;font-size:13px;font-weight:700;
+  }
+  tbody td{padding:12px 16px;border-top:1px solid var(--line);color:var(--text-soft);vertical-align:top;}
+  .status-pill,.pill{
+    display:inline-block;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;line-height:1.4;
+    background:var(--neutral-bg);color:var(--neutral-fg);
+  }
+  .pill.good{background:var(--ok-bg);color:var(--ok-fg);}
+  .pill.warn{background:var(--warn-bg);color:var(--warn-fg);}
+  .pill.bad{background:var(--bad-bg);color:var(--bad-fg);}
+  .empty-note{padding:36px 20px;text-align:center;color:var(--muted);font-weight:600;font-size:14px;}
+  .table-help{margin:16px 4px 0;font-size:13.5px;color:var(--text-soft);text-align:center;}
+  .table-help a{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+
+  /* ---------- Inventaris ---------- */
+  .band{
+    position:relative;isolation:isolate;overflow:hidden;
+    padding:72px 0 112px;
+  }
+  .band-bg{
+    position:absolute;inset:-30px;z-index:-2;
+    background:var(--photo-b) center 40%/cover no-repeat;
+    filter:blur(9px) saturate(1.1);
+  }
+  .band::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(24,104,182,.86) 0%,rgba(14,71,128,.90) 100%);
+  }
+  .band .section-title{color:#fff;margin-bottom:34px;}
+  .inv-card-wrap{
+    max-width:880px;margin:0 auto;background:var(--sheet);border-radius:10px;padding:28px;
+    box-shadow:0 20px 50px rgba(4,24,48,.28);
+  }
+  .inv-tools{display:flex;gap:12px;flex-wrap:wrap;}
+  .inv-search{flex:1 1 280px;position:relative;}
+  .inv-search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;}
+  .inv-search input,.inv-select{
+    width:100%;border:2px solid transparent;border-radius:12px;background:var(--panel);
+    padding:15px 18px;font-size:15px;font-weight:500;color:var(--text);
+  }
+  .inv-search input{padding-left:48px;}
+  .inv-search input::placeholder{color:var(--muted);}
+  .inv-search input:focus,.inv-select:focus{outline:none;border-color:var(--accent);}
+  .inv-select{flex:0 1 200px;cursor:pointer;}
+  .inv-count{margin:14px 4px 0;font-size:13px;color:var(--muted);font-weight:500;}
+  .inv-panel{margin-top:12px;background:var(--panel);border-radius:10px;padding:30px 36px 34px;}
+  .inv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 30px;}
+  .inv-card{
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    border:none;background:none;padding:0;text-align:center;color:var(--text);
+  }
+  .inv-detail-btn{
+    width:100%;border:none;background:transparent;padding:0;cursor:pointer;text-align:center;color:inherit;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .inv-detail-btn:hover .inv-thumb,.inv-detail-btn:focus-visible .inv-thumb{border-color:var(--accent);}
+  .inv-borrow-btn{
+    width:100%;border:none;border-radius:9px;background:var(--accent);color:#fff;
+    padding:8px 10px;font-size:12px;font-weight:700;cursor:pointer;
+    transition:background .15s ease,transform .15s ease;
+  }
+  .inv-borrow-btn:hover{background:var(--accent-hover);transform:translateY(-1px);}
+  .inv-borrow-btn:focus-visible{outline:3px solid var(--blue-300);outline-offset:2px;}
+  .inv-thumb{
+    width:100%;aspect-ratio:214/136;border-radius:10px;background:var(--card);
+    display:flex;align-items:center;justify-content:center;font-size:46px;line-height:1;
+    border:2px solid transparent;transition:border-color .15s ease,transform .15s ease;
+  }
+  .inv-name{font-size:14px;font-weight:600;line-height:1.3;}
+  .inv-meta{margin-top:-6px;font-size:12px;color:var(--muted);line-height:1.4;}
+  .inv-empty{grid-column:1/-1;text-align:center;color:var(--muted);font-weight:600;padding:30px 10px;}
+  .inv-more{display:flex;justify-content:center;margin-top:30px;}
+  .btn-outline{
+    border:2px solid var(--accent);background:transparent;color:var(--accent);
+    font-weight:700;font-size:14px;padding:11px 22px;border-radius:12px;cursor:pointer;
+  }
+  .btn-outline:hover{background:var(--accent);color:#fff;}
+  @media (max-width:820px){
+    .inv-card-wrap{padding:18px;margin:0 16px;}
+    .inv-panel{padding:22px 18px 26px;}
+    .inv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px;}
+    .inv-select{flex:1 1 100%;}
+  }
+  @media (max-width:420px){
+    .inv-thumb{font-size:38px;}
+  }
+
+  /* ---------- SOP & K3 ---------- */
+  .k3-panel{
+    display:flex;gap:24px;align-items:flex-start;
+    background:var(--panel);border-radius:var(--radius);padding:clamp(16px,4vw,48px);
+  }
+  .k3-panel figure{margin:0;}
+  .k3-panel img{display:block;width:100%;height:auto;border-radius:12px;}
+  .k3-apd{flex:394 1 0;}
+  .k3-awas{flex:669 1 0;}
+  @media (max-width:720px){
+    .k3-panel{flex-direction:column;align-items:center;}
+    .k3-apd{width:100%;max-width:394px;flex:none;}
+    .k3-awas{width:100%;max-width:669px;flex:none;}
+  }
+  .limbah-title{margin:72px 0 24px;text-align:center;font-size:clamp(18px,2.4vw,22px);font-weight:700;color:var(--title);}
+  .limbah{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    background:var(--panel);border-radius:var(--radius);padding:clamp(22px,4vw,48px);
+  }
+  .limbah h3{margin:0 0 14px;font-size:22px;font-weight:700;color:var(--title);}
+  .limbah h4{margin:20px 0 6px;font-size:13.5px;font-weight:700;color:var(--title);}
+  .limbah h4:first-of-type{margin-top:0;}
+  .limbah p,.limbah li{margin:0 0 8px;font-size:14px;line-height:1.75;color:var(--text-soft);}
+  .limbah ol{margin:0 0 34px;padding-left:22px;}
+  .limbah .block-gap{margin-bottom:34px;}
+  .limbah .lines p{margin:0;}
+  @media (max-width:820px){.limbah{grid-template-columns:1fr;gap:34px;}}
+
+  /* ---------- Footer ---------- */
+  .footer{padding:52px 24px 44px;}
+  .footer-inner{max-width:1056px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px;}
+  .footer dt{font-weight:700;color:var(--title);}
+  .footer dd{margin:0;color:var(--text-soft);}
+  .footer dd a{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+  @media (max-width:560px){.footer-inner{grid-template-columns:1fr;gap:0;}.footer dd{margin-bottom:10px;}}
+
+  /* ============ MODALS ============ */
+  .overlay{
+    position:fixed;inset:0;z-index:70;background:rgba(6,24,42,.6);
+    display:flex;align-items:center;justify-content:center;
+    padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px));
+  }
+  .modal{
+    width:100%;max-width:440px;max-height:100%;overflow:auto;
+    background:var(--card);color:var(--text);border-radius:20px;padding:26px;
+    box-shadow:0 30px 70px rgba(0,0,0,.35);
+  }
+  .modal-wide{max-width:760px;}
+  .modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:6px;}
+  .modal h3{margin:0;font-size:20px;line-height:1.3;color:var(--title);}
+  .modal .sub{margin:2px 0 18px;font-size:13px;color:var(--muted);}
+  .icon-btn{
+    flex:0 0 auto;width:36px;height:36px;border:none;border-radius:50%;background:var(--field);
+    color:var(--text);font-size:20px;line-height:1;cursor:pointer;
+  }
+  .modal .table-scroll{background:var(--panel);}
+  .modal table{min-width:560px;font-size:13px;}
+  .modal thead th{background:var(--panel-strong);}
+  .modal tbody td{border-top:1px solid var(--line);}
+  .pill-row{display:flex;flex-wrap:wrap;gap:4px;}
+  .modal-field{margin-bottom:14px;}
+  .modal-field label{display:block;margin-bottom:6px;font-size:13px;font-weight:600;color:var(--text-soft);}
+  .modal-field input,.modal-field textarea,.modal-field select{
+    width:100%;border:2px solid transparent;border-radius:10px;background:var(--field);
+    padding:11px 13px;font-size:14px;color:var(--text);resize:vertical;
+  }
+  .modal-field input:focus,.modal-field textarea:focus,.modal-field select:focus{outline:none;border-color:var(--accent);}
+  .modal-field input[readonly]{opacity:.85;}
+  .modal-actions{display:flex;gap:10px;margin-top:20px;}
+  .modal-actions button{flex:1;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;}
+  .btn-ghost{background:var(--field);color:var(--text);}
+  .modal-actions .btn-primary{border-radius:10px;font-size:14px;}
+  .form-msg{margin-top:12px;font-size:13px;font-weight:600;min-height:1.3em;}
+  .form-msg.ok{color:var(--ok-fg);}
+  .form-msg.err{color:var(--bad-fg);}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="nav-shell">
+  <nav class="navbar" id="navbar" aria-label="Navigasi utama">
+    <a class="brand" href="#top" data-nav="top">
+      <strong>LABORATORIUM</strong>
+      <span>LABORATORIUM IPA SMPN 34</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#top" data-nav="top" class="active">Home</a>
+      <a href="#struktur" data-nav="struktur">Struktur Organisasi</a>
+      <a href="#peminjaman" data-nav="peminjaman">Peminjaman</a>
+      <a href="#inventaris" data-nav="inventaris">Inventaris</a>
+      <a href="#sopk3" data-nav="sopk3">SOP &amp; K3</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ================= HERO / FORM PENGUNJUNG ================= -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <h1>Selamat Datang di Website Laboratorium IPA SMPN 34 Surabaya</h1>
+
+  <div class="gate-card">
+    <div class="gate-body">
+      <div>
+        <div id="gateFormWrap">
+          <h2>Silahkan Isi Nama Sebelum Mengakses Laboratorium</h2>
+          <form id="gateForm" autocomplete="off">
+            <div class="field">
+              <label for="gateNama">Nama Lengkap</label>
+              <input id="gateNama" type="text" placeholder="Nama Lengkap" required>
+            </div>
+            <div class="field">
+              <label for="gateInstitusi">Institusi/Kelas</label>
+              <input id="gateInstitusi" type="text" placeholder="Institusi/Kelas" required>
+            </div>
+            <button type="submit" class="btn-primary block">Masuk</button>
+            <p class="gate-hint" id="gateHint" role="status"></p>
+          </form>
+        </div>
+        <div id="gateWelcome" class="hidden">
+          <h2>Halo, <span id="welcomeNama"></span></h2>
+          <p class="welcome-sub" id="welcomeInst"></p>
+          <div class="welcome-actions">
+            <a class="btn-primary" href="#home" data-nav="top">Lihat Profil Laboratorium</a>
+            <button type="button" class="link-btn" id="gateReset">Bukan Anda? Ganti nama</button>
+          </div>
+        </div>
+      </div>
+      <div class="gate-photo" role="img" aria-label="Foto meja praktikum dengan labu dan tabung reaksi"></div>
+    </div>
+    <p class="gate-note">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#4a5158"/><rect x="11.6" y="11" width="2.8" height="8" rx="1.2" fill="#fff"/><circle cx="13" cy="7.6" r="1.7" fill="#fff"/></svg>
+      Data pengunjung tersimpan otomatis untuk keamanan
+    </p>
+  </div>
+</section>
+
+<!-- ================= SITE ================= -->
+<main class="site hidden" id="site">
+
+  <div class="sheet sheet-top">
+
+    <!-- ===== HOME ===== -->
+    <section id="home" class="section">
+      <div class="wrap">
+        <h2 class="section-title">HOME</h2>
+        <h3 class="section-sub">Profil Laboratorium</h3>
+        <div class="profile">
+          <div class="profile-photo" role="img" aria-label="Rak praktikum berisi labu Erlenmeyer berisi cairan warna-warni"></div>
+          <div class="profile-text">
+            <h3>Tentang Laboratorium IPA</h3>
+            <p>Laboratorium IPA SMPN 34 Surabaya adalah ruang praktikum yang digunakan siswa-siswi untuk melakukan percobaan mata pelajaran IPA secara langsung, mulai dari pengamatan biologi, reaksi sederhana kimia, hingga eksperimen fisika. Laboratorium ini dilengkapi dengan alat dan bahan praktikum yang dikelola oleh Kepala Laboratorium bersama guru mata pelajaran IPA, dengan tetap mengutamakan keselamatan dan kenyamanan selama kegiatan berlangsung.</p>
+            <p>Melalui website ini, siswa maupun tamu dapat melihat struktur organisasi pengelola laboratorium, mengecek ketersediaan inventaris alat, mengajukan peminjaman, serta mempelajari SOP dan prosedur K3 sebelum menggunakan laboratorium.</p>
+          </div>
+          <div class="profile-side">
+            <div class="photo" role="img" aria-label="Meja laboratorium dengan deretan labu dan botol reagen"></div>
+            <div class="info-card">
+              <h4>Informasi Laboratorium</h4>
+              <dl>
+                <dt>Jam buka</dt><dd>07.10 – 13.20</dd>
+                <dt>Kontak</dt><dd>Bu Mei, 081252283830</dd>
+                <dt>Lokasi</dt><dd>Jl. Menganti Wiyung, Kec. Wiyung, Surabaya</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ===== STRUKTUR ORGANISASI ===== -->
+    <section id="struktur" class="section">
+      <div class="wrap">
+        <h2 class="section-title struktur-title">STRUKTUR ORGANISASI</h2>
+        <figure class="org-figure">
+          <img src="assets/images/struktur-organisasi-1.png" width="1210" height="1022" loading="lazy"
+               alt="Struktur Organisasi Laboratorium IPA. Kepala Sekolah Wiwik Yulianti, S.Pd., M.Pd membawahi Kurikulum (Denok Siti Fatimah, S.Pd.) dan Sarpras (Drs. Siti Maftuhatin, M.Pd.). Kepala Laboratorium Mei Hajati, S.Pd. membawahi empat guru mata pelajaran IPA: Mei Hajati, S.Pd.; Nadya Ayu N, S.Pd.; Yudo Grahono S, S.Pd.; dan Dinda, S.Pd., yang melayani siswa-siswi SMPN 34 Surabaya.">
+        </figure>
+        <figure class="org-figure">
+          <img src="assets/images/struktur-organisasi-2.png" width="1210" height="1229" loading="lazy"
+               alt="Struktur Organisasi Laboratorium. Kepala Sekolah Wiwik Yulianti, S.Pd., M.Pd; Kurikulum Denok Siti Fatimah, S.Pd.; Kepala Laboratorium Mei Hajati, S.Pd.; guru mata pelajaran IPA Mei Hajati, S.Pd., Nadya Ayu N, S.Pd., dan Yudo Grahono S, S.Pd.; serta Sarpras Drs. Siti Maftuhatin, M.Pd.">
+        </figure>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ===== PEMINJAMAN ===== -->
+    <section id="peminjaman" class="section">
+      <div class="wrap">
+        <h2 class="section-title">PEMINJAMAN</h2>
+        <h3 class="section-sub">Daftar Pengajuan Peminjaman Alat</h3>
+        <div class="table-wrap">
+          <div class="table-scroll">
+            <table id="peminjamanTable">
+              <thead>
+                <tr>
+                  <th>Nama</th><th>Institusi/Kelas</th><th>Alat</th><th>Jumlah</th>
+                  <th>Keterangan</th><th>Waktu</th><th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="peminjamanBody"></tbody>
+            </table>
+            <div class="empty-note hidden" id="peminjamanEmpty">Belum ada pengajuan peminjaman.</div>
+          </div>
+        </div>
+        <p class="table-help">Ingin meminjam alat? Pilih alat di bagian <a href="#inventaris">Inventaris</a>, lalu tekan Ajukan Peminjaman.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== INVENTARIS ===== -->
+  <section id="inventaris" class="band">
+    <div class="band-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2 class="section-title">INVENTARIS</h2>
+      <div class="inv-card-wrap">
+        <div class="inv-tools">
+          <div class="inv-search">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+            <label for="invSearch" class="sr-only">Cari inventaris</label>
+            <input id="invSearch" type="search" placeholder="Cari inventaris" autocomplete="off">
+          </div>
+          <label for="invLemari" class="sr-only">Filter lemari</label>
+          <select id="invLemari" class="inv-select"><option value="">Semua lemari</option></select>
+        </div>
+        <p class="inv-count" id="invCount" aria-live="polite"></p>
+        <div class="inv-panel">
+          <div class="inv-grid" id="invGrid"></div>
+          <div class="inv-more hidden" id="invMoreWrap">
+            <button type="button" class="btn-outline" id="invMore">Tampilkan lebih banyak</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sheet sheet-bottom">
+
+    <!-- ===== SOP & K3 ===== -->
+    <section id="sopk3" class="section">
+      <div class="wrap">
+        <h2 class="section-title">SOP &amp; K3</h2>
+        <h3 class="section-sub">Kesehatan dan Keselamatan Kerja di Laboratorium IPA</h3>
+
+        <div class="k3-panel">
+          <figure class="k3-apd">
+            <img src="assets/images/apd.png" width="394" height="552" loading="lazy"
+                 alt="Gunakan Alat Pelindung Diri: kacamata, sarung tangan, jas lab, celana panjang, dan sepatu tertutup.">
+          </figure>
+          <figure class="k3-awas">
+            <img src="assets/images/pengawasan.png" width="669" height="552" loading="lazy"
+                 alt="Pengawasan: hindari eksperimen tanpa petunjuk pengawas; baca label sebelum eksperimen; ketahui letak peralatan pertolongan pertama dan nomor darurat; dilarang membawa makanan dan minuman serta mencicipi bahan kimia; jangan meninggalkan eksperimen; rapikan ruang kerja dan alat setelah selesai.">
+          </figure>
+        </div>
+
+        <h3 class="limbah-title">Pengolahan Limbah Praktikum</h3>
+        <div class="limbah">
+          <div>
+            <h3>Apa itu limbah praktikum?</h3>
+            <p class="block-gap">Sisa bahan, alat, atau hasil reaksi dari kegiatan praktikum di laboratorium (kimia, biologi, fisika, farmasi, dsb.) yang sudah tidak digunakan dan berpotensi mencemari lingkungan serta membahayakan keselamatan. Tujuan pengelolaan limbah praktikum adalah menjaga keselamatan, mencegah pencemaran lingkungan, dan memastikan kegiatan laboratorium berlangsung tertib serta sesuai standar.</p>
+            <h3>Klasifikasi Limbah</h3>
+            <ol>
+              <li>Limbah kimia berbahaya (B3): asam kuat, basa kuat, pelarut organik, logam berat, reagen toksik.</li>
+              <li>Limbah non-B3: air cucian alat, bahan organik alami, media kultur tidak terkontaminasi.</li>
+              <li>Limbah biologi: kultur mikroba, jaringan, media terkontaminasi.</li>
+              <li>Limbah tajam: jarum, pipet kaca pecah, scalpel.</li>
+            </ol>
+          </div>
+          <div class="lines">
+            <h3>Pengolahan Limbah</h3>
+            <h4>Penanganan limbah kimia</h4>
+            <p>Asam: encerkan → netralkan → simpan.</p>
+            <p>Basa: netralisasi dengan asam lemah.</p>
+            <p>Pelarut organik: simpan di wadah tertutup.</p>
+            <p>Logam berat: dipisahkan dan disimpan terpisah.</p>
+            <h4>Penanganan limbah biologi</h4>
+            <p>Media mikroba diautoklaf 121°C selama 15 menit.</p>
+            <p>Jaringan/biomaterial: disinfeksi lalu dibuang.</p>
+            <p>Terapkan teknik aseptik untuk meminimalkan kontaminasi silang.</p>
+            <h4>Penanganan limbah tajam</h4>
+            <p>Masukkan ke sharps container. Jangan mematahkan atau memanipulasi jarum. Dikelola terpisah dari limbah lain.</p>
+            <h4>Prinsip keselamatan</h4>
+            <p>Gunakan APD (sarung tangan, jas lab, goggles). Jangan mencampur limbah tanpa mengetahui kompatibilitasnya (berpotensi ledakan/gas beracun). Pastikan ventilasi baik.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <footer class="footer">
+      <dl class="footer-inner">
+        <dt>Alamat lab</dt><dd>Jl. Menganti Wiyung, Kelurahan Wiyung, Kecamatan Wiyung, Kota Surabaya, Jawa Timur</dd>
+        <dt>Jam buka</dt><dd>07.10 – 13.20</dd>
+        <dt>No. WA</dt><dd>Bu Mei (<a href="https://wa.me/6281252283830" rel="noopener">081252283830</a>)</dd>
+        <dt>Email</dt><dd><a href="mailto:labIPA_SMPN34SBY@gmail.com">labIPA_SMPN34SBY@gmail.com</a></dd>
+      </dl>
+    </footer>
+  </div>
+</main>
+
+<!-- ================= MODAL DETAIL ALAT ================= -->
+<div class="overlay hidden" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <div class="modal modal-wide">
+    <div class="modal-head">
+      <h3 id="detailTitle"></h3>
+      <button type="button" class="icon-btn" id="detailX" aria-label="Tutup">×</button>
+    </div>
+    <p class="sub" id="detailSub"></p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Lokasi</th><th>Ukuran</th><th>Merk</th><th>Jumlah</th><th>Kondisi</th></tr></thead>
+        <tbody id="detailBody"></tbody>
+      </table>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn-ghost" id="detailClose">Tutup</button>
+      <button type="button" class="btn-primary" id="detailBorrow">Ajukan Peminjaman</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL AJUKAN PEMINJAMAN ================= -->
+<div class="overlay hidden" id="pinjamOverlay" role="dialog" aria-modal="true" aria-labelledby="pinjamTitle">
+  <div class="modal">
+    <h3 id="pinjamTitle">Ajukan Peminjaman</h3>
+    <p class="sub" id="pinjamItemName">Alat: -</p>
+    <form id="pinjamForm">
+      <div class="modal-field" id="varianField">
+        <label for="pinjamVarian">Ukuran / merk</label>
+        <select id="pinjamVarian"></select>
+      </div>
+      <div class="modal-field">
+        <label for="pinjamJumlah">Jumlah</label>
+        <input id="pinjamJumlah" type="number" min="1" value="1" required>
+      </div>
+      <div class="modal-field">
+        <label for="pinjamKet">Keterangan / keperluan</label>
+        <textarea id="pinjamKet" rows="3" placeholder="Contoh: untuk praktikum kelas 8B"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-ghost" id="pinjamCancel">Batal</button>
+        <button type="submit" class="btn-primary" id="pinjamSubmit">Ajukan</button>
+      </div>
+      <div class="form-msg" id="pinjamMsg" role="status"></div>
+    </form>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  'use strict';
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+  /* ================= STATE ================= */
+  let visitor = null;
+  let selectedGroup = null;
+  let lastFocus = null;
+
+  /* ================= DB (peminjaman & log pengunjung) ================= */
+  let dbPromise = null;
+  function getDb(){
+    if(!dbPromise){
+      dbPromise = (window.claude && window.claude.use) ? window.claude.use('db').catch(()=>null) : Promise.resolve(null);
+    }
+    return dbPromise;
+  }
+
+  /* ================= GATE ================= */
+  const siteEl = $('#site');
+  const formWrap = $('#gateFormWrap');
+  const welcomeEl = $('#gateWelcome');
+  const hintEl = $('#gateHint');
+
+  function showSite(v, opts){
+    visitor = v;
+    siteEl.classList.remove('hidden');
+    formWrap.classList.add('hidden');
+    welcomeEl.classList.remove('hidden');
+    $('#welcomeNama').textContent = v.nama;
+    $('#welcomeInst').textContent = v.institusi;
+    if(opts && opts.scroll){
+      requestAnimationFrame(()=> $('#home').scrollIntoView({behavior:'smooth', block:'start'}));
+    }
+  }
+  function resetVisitor(){
+    visitor = null;
+    try{ sessionStorage.removeItem('lab_visitor'); }catch(e){}
+    siteEl.classList.add('hidden');
+    welcomeEl.classList.add('hidden');
+    formWrap.classList.remove('hidden');
+    $('#gateForm').reset();
+    window.scrollTo({top:0});
+    $('#gateNama').focus();
+  }
+
+  try{
+    const saved = sessionStorage.getItem('lab_visitor');
+    if(saved){ const v = JSON.parse(saved); if(v && v.nama && v.institusi) showSite(v); }
+  }catch(e){}
+
+  $('#gateForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nama = $('#gateNama').value.trim();
+    const institusi = $('#gateInstitusi').value.trim();
+    if(!nama || !institusi){ hintEl.textContent = 'Isi nama dan institusi/kelas terlebih dahulu.'; return; }
+    hintEl.textContent = '';
+    const v = {nama, institusi};
+    try{ sessionStorage.setItem('lab_visitor', JSON.stringify(v)); }catch(err){}
+    showSite(v, {scroll:true});
+    logPengunjung(v);
+  });
+  $('#gateReset').addEventListener('click', resetVisitor);
+
+  async function logPengunjung(v){
+    try{
+      const db = await getDb();
+      if(!db) return;
+      await db.collection('pengunjung').add({nama:v.nama, institusi:v.institusi, waktu:Date.now()});
+    }catch(e){ /* diam */ }
+  }
+
+  /* ================= NAV ================= */
+  const navbar = $('#navbar');
+  const navToggle = $('#navToggle');
+  const navLinks = $('#navLinks');
+  const navAnchors = $$('.nav-links [data-nav]');
+
+  function setNavOpen(open){
+    navLinks.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+  }
+  navToggle.addEventListener('click', ()=> setNavOpen(!navLinks.classList.contains('open')));
+
+  $$('[data-nav]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      setNavOpen(false);
+      if(!visitor && a.dataset.nav !== 'top'){
+        e.preventDefault();
+        window.scrollTo({top:0, behavior:'smooth'});
+        hintEl.textContent = 'Isi nama dan institusi/kelas untuk membuka halaman ini.';
+        $('#gateNama').focus({preventScroll:true});
+      }
+    });
+  });
+
+  window.addEventListener('scroll', ()=> navbar.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+  const trackIds = ['top','home','struktur','peminjaman','inventaris','sopk3'];
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      const key = en.target.id === 'home' ? 'top' : en.target.id;
+      navAnchors.forEach(a=> a.classList.toggle('active', a.dataset.nav === key));
+    });
+  }, {rootMargin:'-35% 0px -60% 0px'});
+  trackIds.forEach(id=>{ const el = document.getElementById(id); if(el) io.observe(el); });
+
+  /* ================= DATA INVENTARIS ================= */
+  async function initInventory(){
+    let TABLES = [];
+    const ROWS = [];
+    try{
+      const response = await fetch('./data/inventaris.json', {cache:'no-store'});
+      if(!response.ok) throw new Error('HTTP ' + response.status);
+      TABLES = await response.json();
+    }catch(err){
+      console.error('Gagal memuat data/inventaris.json:', err);
+      $('#invGrid').replaceChildren(el('div','inv-empty','Data inventaris gagal dimuat. Pastikan Live Server dijalankan dari folder utama website.'));
+      $('#invCount').textContent = 'Data inventaris tidak tersedia';
+      return;
+    }
+  TABLES.forEach(t=>{
+    t.rows.forEach(r=>{
+      ROWS.push({tabel:t.t, lemari:t.l, rak:r[0], no:r[1], nama:r[2], ukuran:r[3], merk:r[4], jumlah:r[5], ket:r[6]});
+    });
+  });
+
+  const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ').trim();
+  const isDash = s => !s || s === '-';
+
+  ROWS.forEach(r=>{
+    r.hay = norm([r.nama, r.ukuran, r.merk, r.lemari, r.rak, r.jumlah, r.ket.join(' ')].join(' '));
+  });
+
+  function parseQty(text){
+    const m = /^(\d+(?:[.,]\d+)?)\s*([A-Za-z]*)/.exec(text);
+    if(!m) return null;
+    const n = parseFloat(m[1].replace(/\./g,'').replace(',','.'));
+    let unit = (m[2] || 'buah').toLowerCase();
+    if(unit === 'roll') unit = 'rol';
+    return {n, unit};
+  }
+
+  const groupMap = new Map();
+  ROWS.forEach(r=>{
+    const key = norm(r.nama);
+    let g = groupMap.get(key);
+    if(!g){
+      g = {key, nama: r.nama.charAt(0).toUpperCase() + r.nama.slice(1), rows:[], lemari:[]};
+      groupMap.set(key, g);
+    }
+    g.rows.push(r);
+    if(!g.lemari.includes(r.lemari)) g.lemari.push(r.lemari);
+  });
+  const GROUPS = Array.from(groupMap.values()).sort((a,b)=> a.nama.localeCompare(b.nama, 'id'));
+  GROUPS.forEach(g=>{
+    const totals = {};
+    g.rows.forEach(r=>{ const q = parseQty(r.jumlah); if(q) totals[q.unit] = (totals[q.unit]||0) + q.n; });
+    g.total = Object.entries(totals).map(([u,n])=> n.toLocaleString('id-ID') + ' ' + u).join(' + ');
+    g.icon = iconFor(g.key);
+  });
+
+  function iconFor(name){
+    const map = [
+      [/mikroskop/, '🔬'],
+      [/bunsen|kompor|spiritus|lilin/, '🔥'],
+      [/termometer|thermometer|hydrometer|barometer/, '🌡️'],
+      [/neraca|dynamometer|keping beban|balok beban|bandul|beban/, '⚖️'],
+      [/magnet|kompas|serbuk besi/, '🧲'],
+      [/baterai|power supply|adaptor|kabel|konektor|resistor|switch|multimeter|meter|galvanometer|ampere|volt|kumparan|coil|lamp|bohlam|elektro|papan rangkaian|plug|multiplier|penghambat|ticker|kawat|sikring|nikrom|faraday/, '⚡'],
+      [/\blup\b|lensa|prisma|cermin|kaca pembesar|plan paralel/, '🔍'],
+      [/model|tengkorak|peraga|kit b|kit p|kit g|preparat|bedah|dissecting|genetika|kartu|kuadrat|bioplastik|respirometer|osmo|auxanometer|stetoskop|tensimeter|molecular/, '🧬'],
+      [/alkohol|asam|koh\b|sodium|aseton|aquades|iodium|betadine|methylene|fehling|benedict|biuret|hydrogen|timbal|tembaga 2|kmno|vaseline|vitamin|citrune|tartrat|indikator|lakmus|kapur tohor/, '⚗️'],
+      [/gelas|beaker|beker|erlenmeyer|tabung|corong|pipet|cawan|pooter|vacum|lumpang|\balu\b|plat tetes|titrasi|rak tabung|pengaduk|batang kaca|kaca arloji|spet/, '🧪'],
+      [/kapur|kertas|penggaris|busur|jangka|micrometer|stopwatch/, '📏'],
+    ];
+    for(const [re, ico] of map){ if(re.test(name)) return ico; }
+    return '🧰';
+  }
+
+  /* ================= LEMARI FILTER ================= */
+  const lemariSel = $('#invLemari');
+  const lemariList = [];
+  TABLES.forEach(t=>{ if(!lemariList.includes(t.l)) lemariList.push(t.l); });
+  lemariList.forEach(l=>{
+    const o = document.createElement('option');
+    o.value = l; o.textContent = l;
+    lemariSel.appendChild(o);
+  });
+
+  /* ================= RENDER GRID ================= */
+  const PAGE = 18;
+  const grid = $('#invGrid');
+  const moreWrap = $('#invMoreWrap');
+  const countEl = $('#invCount');
+  let filtered = [];
+  let shown = 0;
+
+  function el(tag, cls, text){
+    const n = document.createElement(tag);
+    if(cls) n.className = cls;
+    if(text != null) n.textContent = text;
+    return n;
+  }
+
+  function cardFor(g){
+    const card = el('div', 'inv-card');
+    card.dataset.key = g.key;
+
+    const detailBtn = el('button', 'inv-detail-btn');
+    detailBtn.type = 'button';
+    detailBtn.setAttribute('aria-label', 'Lihat detail ' + g.nama);
+    const thumb = el('span', 'inv-thumb', g.icon);
+    thumb.setAttribute('aria-hidden', 'true');
+    const meta = [];
+    if(g.total) meta.push(g.total);
+    meta.push(g.lemari.length === 1 ? g.lemari[0] : g.lemari.length + ' lemari');
+    if(g.rows.length > 1) meta.push(g.rows.length + ' varian');
+    detailBtn.append(thumb, el('span', 'inv-name', g.nama), el('span', 'inv-meta', meta.join(' · ')));
+    detailBtn.addEventListener('click', ()=> openDetail(g.key));
+
+    const borrowBtn = el('button', 'inv-borrow-btn', 'Ajukan Peminjaman');
+    borrowBtn.type = 'button';
+    borrowBtn.addEventListener('click', ()=> openBorrow(g));
+
+    card.append(detailBtn, borrowBtn);
+    return card;
+  }
+
+  function applyFilter(){
+    const tokens = norm($('#invSearch').value).split(' ').filter(Boolean);
+    const lem = lemariSel.value;
+    filtered = GROUPS.filter(g=> g.rows.some(r=>
+      (!lem || r.lemari === lem) && tokens.every(t=> r.hay.includes(t))
+    ));
+    shown = 0;
+    grid.replaceChildren();
+    renderMore();
+  }
+
+  function renderMore(){
+    if(filtered.length === 0){
+      grid.replaceChildren(el('div', 'inv-empty', 'Alat tidak ditemukan. Coba kata kunci lain.'));
+      moreWrap.classList.add('hidden');
+      countEl.textContent = '0 alat ditemukan';
+      return;
+    }
+    const next = filtered.slice(shown, shown + PAGE);
+    next.forEach(g=> grid.appendChild(cardFor(g)));
+    shown += next.length;
+    moreWrap.classList.toggle('hidden', shown >= filtered.length);
+    const remain = filtered.length - shown;
+    $('#invMore').textContent = 'Tampilkan ' + Math.min(PAGE, remain) + ' lagi';
+    countEl.textContent = 'Menampilkan ' + shown + ' dari ' + filtered.length + ' jenis alat · ' + ROWS.length + ' data inventaris dari ' + TABLES.length + ' tabel';
+  }
+
+  $('#invSearch').addEventListener('input', applyFilter);
+  lemariSel.addEventListener('change', applyFilter);
+  $('#invMore').addEventListener('click', renderMore);
+  applyFilter();
+  }
+  initInventory();
+
+  /* ================= OVERLAYS ================= */
+  function openOverlay(o){
+    lastFocus = document.activeElement;
+    o.classList.remove('hidden');
+    const f = o.querySelector('input:not([readonly]),select,textarea,button.btn-primary,button');
+    if(f) f.focus({preventScroll:true});
+  }
+  function closeOverlay(o){
+    o.classList.add('hidden');
+    if(lastFocus && lastFocus.focus) lastFocus.focus({preventScroll:true});
+  }
+  const detailOverlay = $('#detailOverlay');
+  const pinjamOverlay = $('#pinjamOverlay');
+  [detailOverlay, pinjamOverlay].forEach(o=>{
+    o.addEventListener('click', e=>{ if(e.target === o) closeOverlay(o); });
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key !== 'Escape') return;
+    if(!pinjamOverlay.classList.contains('hidden')) closeOverlay(pinjamOverlay);
+    else if(!detailOverlay.classList.contains('hidden')) closeOverlay(detailOverlay);
+  });
+
+  function tone(part){
+    const p = part.toLowerCase();
+    if(/rusak/.test(p)) return 'bad';
+    if(/berkarat|kurang|berkurang|tidak tersegel/.test(p)) return 'warn';
+    if(/baik|baru|tersegel|penuh/.test(p)) return 'good';
+    return '';
+  }
+  function lokasi(r){ return r.rak ? r.lemari + ' · ' + r.rak : r.lemari; }
+
+  /* ================= DETAIL ALAT ================= */
+  function openDetail(key){
+    const g = groupMap.get(key);
+    if(!g) return;
+    selectedGroup = g;
+    $('#detailTitle').textContent = g.nama;
+    const bits = [g.rows.length + (g.rows.length > 1 ? ' varian' : ' data')];
+    if(g.total) bits.push('total ' + g.total);
+    $('#detailSub').textContent = bits.join(' · ');
+    const body = $('#detailBody');
+    body.replaceChildren();
+    g.rows.forEach(r=>{
+      const tr = document.createElement('tr');
+      tr.append(el('td', null, lokasi(r)), el('td', null, r.ukuran), el('td', null, r.merk), el('td', null, r.jumlah));
+      const td = document.createElement('td');
+      const wrap = el('div', 'pill-row');
+      r.ket.forEach(k=> wrap.appendChild(el('span', 'pill ' + tone(k), k)));
+      td.appendChild(wrap);
+      tr.appendChild(td);
+      body.appendChild(tr);
+    });
+    openOverlay(detailOverlay);
+  }
+  $('#detailX').addEventListener('click', ()=> closeOverlay(detailOverlay));
+  $('#detailClose').addEventListener('click', ()=> closeOverlay(detailOverlay));
+
+  /* ================= PEMINJAMAN ================= */
+  const pinjamForm = $('#pinjamForm');
+  const pinjamMsg = $('#pinjamMsg');
+  const varianSel = $('#pinjamVarian');
+
+  function varianLabel(r){
+    const parts = [];
+    if(!isDash(r.ukuran)) parts.push(r.ukuran);
+    if(!isDash(r.merk)) parts.push(r.merk);
+    parts.push(r.jumlah);
+    parts.push(lokasi(r));
+    return parts.join(' · ');
+  }
+
+  function openBorrow(g){
+    if(!visitor){
+      hintEl.textContent = 'Isi nama dan institusi/kelas terlebih dahulu untuk mengajukan peminjaman.';
+      window.scrollTo({top:0, behavior:'smooth'});
+      return;
+    }
+    selectedGroup = g;
+    $('#pinjamItemName').textContent = 'Alat: ' + g.nama;
+    varianSel.replaceChildren();
+    g.rows.forEach((r,i)=>{
+      const o = document.createElement('option');
+      o.value = String(i); o.textContent = varianLabel(r);
+      varianSel.appendChild(o);
+    });
+    $('#varianField').classList.toggle('hidden', g.rows.length < 2);
+    $('#pinjamJumlah').value = 1;
+    $('#pinjamKet').value = '';
+    pinjamMsg.textContent = '';
+    pinjamMsg.className = 'form-msg';
+    detailOverlay.classList.add('hidden');
+    openOverlay(pinjamOverlay);
+  }
+
+  $('#detailBorrow').addEventListener('click', ()=>{
+    if(!selectedGroup) return;
+    openBorrow(selectedGroup);
+  });
+  $('#pinjamCancel').addEventListener('click', ()=> closeOverlay(pinjamOverlay));
+
+  pinjamForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(!selectedGroup || !visitor) return;
+    const r = selectedGroup.rows[parseInt(varianSel.value || '0', 10)] || selectedGroup.rows[0];
+    const jumlah = parseInt($('#pinjamJumlah').value, 10) || 1;
+    const keterangan = $('#pinjamKet').value.trim();
+    if(jumlah < 1){
+      pinjamMsg.textContent = 'Jumlah peminjaman minimal 1.';
+      pinjamMsg.className = 'form-msg err';
+      return;
+    }
+    const spec = [r.ukuran, r.merk].filter(s=> !isDash(s)).join(', ');
+    const itemLabel = spec ? selectedGroup.nama + ' (' + spec + ')' : selectedGroup.nama;
+    const btn = $('#pinjamSubmit');
+    btn.disabled = true;
+    pinjamMsg.className = 'form-msg';
+    pinjamMsg.textContent = 'Mengirim pengajuan...';
+    try{
+      const request = {
+        nama: visitor.nama, institusi: visitor.institusi,
+        item: itemLabel, jumlah, keterangan,
+        waktu: Date.now(), status: 'Menunggu'
+      };
+      const db = await getDb();
+      if(db){
+        await db.collection('peminjaman').add(request);
+      }else{
+        // Fallback agar fitur tetap bisa dipakai di Live Server tanpa database.
+        const current = readLocalPeminjaman();
+        current.unshift(request);
+        saveLocalPeminjaman(current.slice(0,100));
+        renderPeminjaman(current.slice(0,100));
+      }
+      pinjamMsg.textContent = 'Pengajuan berhasil dikirim. Data sudah masuk ke daftar Peminjaman.';
+      pinjamMsg.className = 'form-msg ok';
+      setTimeout(()=>{
+        closeOverlay(pinjamOverlay);
+        const peminjamanSection = document.getElementById('peminjaman');
+        if(peminjamanSection){
+          peminjamanSection.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }, 700);
+    }catch(err){
+      pinjamMsg.textContent = 'Gagal mengirim pengajuan. Coba lagi.';
+      pinjamMsg.className = 'form-msg err';
+    }finally{
+      btn.disabled = false;
+    }
+  });
+
+  /* ================= TABEL PEMINJAMAN ================= */
+  const pBody = $('#peminjamanBody');
+  const pEmpty = $('#peminjamanEmpty');
+  const LOCAL_KEY = 'lab_peminjaman';
+
+  function readLocalPeminjaman(){
+    try{
+      const data = JSON.parse(localStorage.getItem(LOCAL_KEY) || '[]');
+      return Array.isArray(data) ? data : [];
+    }catch(e){ return []; }
+  }
+  function saveLocalPeminjaman(docs){
+    try{ localStorage.setItem(LOCAL_KEY, JSON.stringify(docs)); }catch(e){}
+  }
+
+  function renderPeminjaman(docs){
+    pBody.replaceChildren();
+    pEmpty.classList.toggle('hidden', docs.length > 0);
+    docs.forEach(d=>{
+      const tr = document.createElement('tr');
+      const waktu = d.waktu ? new Date(d.waktu).toLocaleString('id-ID', {dateStyle:'medium', timeStyle:'short'}) : '-';
+      [d.nama||'-', d.institusi||'-', d.item||'-', String(d.jumlah||1), d.keterangan||'-', waktu].forEach(t=> tr.appendChild(el('td', null, t)));
+      const st = document.createElement('td');
+      st.appendChild(el('span', 'status-pill', d.status || 'Menunggu'));
+      tr.appendChild(st);
+      pBody.appendChild(tr);
+    });
+  }
+
+  (async function initPeminjamanFeed(){
+    const localDocs = readLocalPeminjaman();
+    renderPeminjaman(localDocs);
+
+    const db = await getDb();
+    if(!db) return;
+    try{
+      db.collection('peminjaman').orderBy('waktu','desc').limit(100).onSnapshot(
+        snap => renderPeminjaman(snap.docs.map(d=> d.data())),
+        () => renderPeminjaman(readLocalPeminjaman())
+      );
+    }catch(e){ renderPeminjaman(localDocs); }
+  })();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,3621 @@
+[
+  {
+    "t": "Tabel 1",
+    "l": "Lemari 1",
+    "rows": [
+      [
+        "Rak 1",
+        "1.",
+        "Tabung Reaksi",
+        "Kecil",
+        "-",
+        "80 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "2.",
+        "Tabung Reaksi",
+        "Besar",
+        "-",
+        "64 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "3.",
+        "Rak Tabung Reaksi kayu",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "4.",
+        "Termometer raksa",
+        "-",
+        "-",
+        "9 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "5.",
+        "Rak tabung reaksi plastik",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "6.",
+        "Gelas beaker",
+        "250 mL",
+        "Approx",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "7.",
+        "Pengaduk Kaca",
+        "Besar",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "8.",
+        "Pengaduk kaca",
+        "Kecil",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "9.",
+        "Gelas Beaker",
+        "100 mL",
+        "-",
+        "24 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "10.",
+        "Erlenmeyer",
+        "250 mL.",
+        "Aprox",
+        "28 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "11.",
+        "Erlenmeyer",
+        "250 mL",
+        "Aprox",
+        "25 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "12.",
+        "Erlenmeyer",
+        "100 mL",
+        "Aprox",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 5",
+        "13.",
+        "Gelas Beaker",
+        "1000 mL",
+        "Aprox",
+        "7 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 5",
+        "14.",
+        "Gelas Beaker",
+        "1000 mL",
+        "GG-17",
+        "7 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 5",
+        "15.",
+        "Gelas Beaker",
+        "600 mL",
+        "Pyrex",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 5",
+        "16.",
+        "Gelas Beaker",
+        "100 mL",
+        "Aprox",
+        "8 buah",
+        [
+          "Bak"
+        ]
+      ],
+      [
+        "Rak 6",
+        "17.",
+        "Gelas Beaker",
+        "250 mL",
+        "Aprox",
+        "13 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 6",
+        "18.",
+        "Gelas Beaker",
+        "200 mL",
+        "Aprox",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 7",
+        "19.",
+        "Corong kaca",
+        "-",
+        "-",
+        "34 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 7",
+        "20.",
+        "Corong Plastik",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "21.",
+        "Lumpang Tebal",
+        "Besar",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "22.",
+        "Lumpang Tebal",
+        "Sedang",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "23.",
+        "Lumpang Tebal",
+        "Kecil",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "24.",
+        "Lumpang Tipis",
+        "Sedang",
+        "-",
+        "12 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "25.",
+        "Alu",
+        "Besar",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "26.",
+        "Alu",
+        "Sedang",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "27.",
+        "Alu",
+        "Kecil",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "28.",
+        "Plat Tetes",
+        "-",
+        "-",
+        "7 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "29.",
+        "Penjepit Kayu",
+        "-",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "30.",
+        "Pipet Tetes",
+        "-",
+        "-",
+        "-",
+        [
+          "Rusak (41)"
+        ]
+      ],
+      [
+        "Rak 8",
+        "31.",
+        "Pipet HBG",
+        "10 mL",
+        "-",
+        "11 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 8",
+        "32.",
+        "Pipet HBG",
+        "5 mL",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 2",
+    "l": "Lemari 2",
+    "rows": [
+      [
+        "Rak 1",
+        "1.",
+        "Kapur tohor",
+        "7.000 gr",
+        "-",
+        "7 plastik",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "2.",
+        "Kapur papan",
+        "-",
+        "Trisensa",
+        "1 box",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "3.",
+        "Kapur papan",
+        "-",
+        "Sarjana",
+        "1box",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "4.",
+        "Kapur papan",
+        "-",
+        "-",
+        "1 Plastik",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "5.",
+        "Lilin",
+        "-",
+        "-",
+        "1 Plastik",
+        [
+          "Berkurang"
+        ]
+      ],
+      [
+        "Rak 1",
+        "6.",
+        "Tengkorak",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Kurang baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "7.",
+        "Papan katrol",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Kurang baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "8.",
+        "Kit optika",
+        "-",
+        "-",
+        "4 box",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "9.",
+        "Kit Mekanika",
+        "-",
+        "-",
+        "1 box",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "10.",
+        "Kit listrik dan magnet",
+        "-",
+        "-",
+        "1 box",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "11.",
+        "Kit hidrostatika dan panas",
+        "-",
+        "-",
+        "4 box",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "12.",
+        "Rel",
+        "50 cm",
+        "-",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "13.",
+        "Kaki tiga",
+        "-",
+        "-",
+        "33 buah",
+        [
+          "Berkarat"
+        ]
+      ],
+      [
+        "Rak 3",
+        "14.",
+        "Kompor besi",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Berkarat"
+        ]
+      ],
+      [
+        "Rak 3",
+        "15.",
+        "Beban buatan",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "16.",
+        "Statif",
+        "-",
+        "-",
+        "15 buah",
+        [
+          "Baik (6)",
+          "Berkarat (11)",
+          "Baru (2)"
+        ]
+      ],
+      [
+        "Rak 3",
+        "17.",
+        "Klem",
+        "-",
+        "-",
+        "22 buah",
+        [
+          "Baik (10)",
+          "Berkarat (10)",
+          "Baru (2)"
+        ]
+      ],
+      [
+        "Rak 3",
+        "18.",
+        "Kawat kasa",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "19.",
+        "Batang statif",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "20.",
+        "Dasar Statif",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "21.",
+        "Kubus besi",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Berkarat"
+        ]
+      ],
+      [
+        "Rak 3",
+        "22.",
+        "Bidang miring",
+        "50 cm",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "23.",
+        "Kabel penghu bung",
+        "-",
+        "-",
+        "68 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "24.",
+        "Beban",
+        "1 kg",
+        "-",
+        "4 buah",
+        [
+          "Berkarat"
+        ]
+      ],
+      [
+        "Rak 4",
+        "25.",
+        "Kit Bioplastik",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Kurang baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "26.",
+        "Konduksi logam",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Berkarat"
+        ]
+      ],
+      [
+        "Rak 4",
+        "27.",
+        "Musschenbroek",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Berkarat"
+        ]
+      ],
+      [
+        "Rak 4",
+        "28.",
+        "Rel",
+        "1 meter",
+        "-",
+        "2 buah",
+        [
+          "Berkarat"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 3",
+    "l": "Lemari 3",
+    "rows": [
+      [
+        "Rak 1 (Paling atas)",
+        "1.",
+        "Vacum Extender",
+        "Besar",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "2.",
+        "Vacum Extender",
+        "Kecil",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "3.",
+        "Gelas Ukur",
+        "250 mL",
+        "Pudak",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "4.",
+        "Gelas Ukur",
+        "250 mL",
+        "Herma",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "5.",
+        "Gelas Ukur",
+        "250 mL",
+        "Wardana",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "6.",
+        "Gelas Ukur",
+        "250 mL",
+        "YZ",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "7.",
+        "Gelas Ukur",
+        "100 mL",
+        "Herma",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "8.",
+        "Gelas Ukur",
+        "50 mL",
+        "27 MC",
+        "9 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "9.",
+        "Gelas Ukur",
+        "25 mL",
+        "Pudak",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "10.",
+        "Gelas Ukur",
+        "25 mL",
+        "Wardhana",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "11.",
+        "Gelas Ukur",
+        "25 mL",
+        "ZL",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "12.",
+        "Gelas Ukur",
+        "25 mL",
+        "Aprox",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "13.",
+        "Gelas Ukur",
+        "10 mL",
+        "YL",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "14.",
+        "Gelas Ukur",
+        "10 mL",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "15.",
+        "Pooter",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1 (Paling atas)",
+        "16.",
+        "Bunsen",
+        "-",
+        "-",
+        "9 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "17.",
+        "Baterai 1D",
+        "1.5 V",
+        "ABC",
+        "91 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "18.",
+        "Baterai",
+        "1.5 V",
+        "Panasonic",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "19.",
+        "Baterai 3AA",
+        "1.5 V",
+        "ABC",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "20.",
+        "Baterai 2C",
+        "1.5 V",
+        "ABC",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "21.",
+        "Konektor L",
+        "-",
+        "-",
+        "15 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "22.",
+        "Konektor Y",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "23.",
+        "Gelas Beker Plastik",
+        "1000 mL",
+        "Eukaka",
+        "9 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "24.",
+        "Gelas Beker Plastik",
+        "500 mL",
+        "Pudak",
+        "12 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "25.",
+        "Alat Titrasi/ Set",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Kurang Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "26.",
+        "Vaseline",
+        "500 gr",
+        "-",
+        "2 botol besar",
+        [
+          "Tersegel"
+        ]
+      ],
+      [
+        "Rak 3",
+        "27.",
+        "KOH",
+        "200 gr",
+        "-",
+        "2 botol besar",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "28.",
+        "KNA Tartrat",
+        "100 gr",
+        "-",
+        "2 botol kecil",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "29.",
+        "Tembaga 2 sulfat",
+        "100 gr",
+        "-",
+        "2 botol kecil",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "30.",
+        "Aquades",
+        "1.000 m L",
+        "-",
+        "1 botol besar",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "31.",
+        "Hydrogen proxide 3 %",
+        "100 mL",
+        "-",
+        "3 botol kecil",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "32.",
+        "Timbal oxide (PBO)",
+        "100 gr",
+        "-",
+        "2 botol kecil",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "33.",
+        "Biuret",
+        "500 mL",
+        "-",
+        "1 botol besar",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "34.",
+        "Benedict",
+        "500 mL",
+        "-",
+        "1 botol besar",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "35.",
+        "Iodium tincture",
+        "250 mL",
+        "-",
+        "1 botol sedang",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "36.",
+        "Alkohol 70%",
+        "1.000 m L",
+        "-",
+        "4 botol besar",
+        [
+          "Tersegel (3)",
+          "Tidak tersegel (1)"
+        ]
+      ],
+      [
+        "Rak 3",
+        "37.",
+        "Sodium Hydroxide",
+        "100 gr",
+        "-",
+        "1 botol kecil",
+        [
+          "Berkurang"
+        ]
+      ],
+      [
+        "Rak 3",
+        "38.",
+        "Methylene Blue",
+        "1.000 gr",
+        "-",
+        "1 botol besar",
+        [
+          "Tersegel"
+        ]
+      ],
+      [
+        "Rak 3",
+        "39.",
+        "Fehling B",
+        "1.000 gr",
+        "-",
+        "2 botol besar",
+        [
+          "Tersegel"
+        ]
+      ],
+      [
+        "Rak 3",
+        "40.",
+        "Fehling A",
+        "1.000 gr",
+        "-",
+        "2 botol besar",
+        [
+          "Tersegel"
+        ]
+      ],
+      [
+        "Rak 3",
+        "41.",
+        "Aseton",
+        "1.000 gr",
+        "-",
+        "3 botol besar",
+        [
+          "Berkurang"
+        ]
+      ],
+      [
+        "Rak 3",
+        "42.",
+        "KMnO4",
+        "500 gr",
+        "-",
+        "1 botol besar",
+        [
+          "Berkurang"
+        ]
+      ],
+      [
+        "Rak 3",
+        "43.",
+        "Alkohol 70%",
+        "5.000 ml",
+        "-",
+        "1 Jerike n",
+        [
+          "Tersegel"
+        ]
+      ],
+      [
+        "Rak 3",
+        "44.",
+        "Alkohol 96%",
+        "5.000 ml",
+        "-",
+        "1 Jeriken",
+        [
+          "Tersegel"
+        ]
+      ],
+      [
+        "Rak 3",
+        "45.",
+        "Spiritus",
+        "1.000 ml",
+        "-",
+        "2 botol besar",
+        [
+          "Tersegel (1) Berkurang",
+          "(1)"
+        ]
+      ],
+      [
+        "Rak 3",
+        "46.",
+        "Betadine",
+        "15 ml",
+        "-",
+        "1 botol",
+        [
+          "Tersegel"
+        ]
+      ],
+      [
+        "Rak 3",
+        "47.",
+        "Betadine",
+        "30 ml",
+        "-",
+        "2 botol",
+        [
+          "Berkurang (1",
+          ")",
+          "Tersegel (1)"
+        ]
+      ],
+      [
+        "Rak 3",
+        "48.",
+        "Citrune",
+        "-",
+        "-",
+        "1 plastik",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "49.",
+        "Asam sulfat",
+        "-",
+        "-",
+        "1 plastik",
+        [
+          "Penuh"
+        ]
+      ],
+      [
+        "Rak 3",
+        "50.",
+        "Vitamin C",
+        "-",
+        "Sidomuncu l",
+        "1 box",
+        [
+          "Berkurang"
+        ]
+      ],
+      [
+        "Rak 4",
+        "51.",
+        "Mikroskop Cahaya",
+        "-",
+        "Wardhana",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 4",
+    "l": "Lemari 4",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Keping beban",
+        "25 gr",
+        "-",
+        "25 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Keping beban",
+        "50 gr",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Auxanometer",
+        "-",
+        "Wardhana",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "4.",
+        "Sumbat karet",
+        "-",
+        "-",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "5.",
+        "Kaca pembesar geologi",
+        "10x",
+        "-",
+        "62 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "6.",
+        "Lempeng seng",
+        "-",
+        "-",
+        "13 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "7.",
+        "Lempeng besi",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "8.",
+        "Lempeng tembaga",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "9.",
+        "Trolley",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "10.",
+        "Klip",
+        "-",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "11.",
+        "Lamp holder",
+        "-",
+        "Elindo",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "12.",
+        "Hydrometer",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "13.",
+        "Thermometer ruangan",
+        "-",
+        "Brannan",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "14.",
+        "Elektroskop",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "16.",
+        "Busur",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "17.",
+        "Kompas",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "18.",
+        "Vector",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "19.",
+        "Balok beban",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "20.",
+        "Neraca pegas",
+        "500 gr",
+        "Owl",
+        "3 buah",
+        [
+          "Baik (2)",
+          "Rusak (1)"
+        ]
+      ],
+      [
+        "",
+        "21.",
+        "Neraca pegas",
+        "25 kg",
+        "Wardhana",
+        "3 buah",
+        [
+          "Baik (2)",
+          "Rusak (1)"
+        ]
+      ],
+      [
+        "",
+        "22.",
+        "Neraca pegas",
+        "500 gr",
+        "Eus",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "23.",
+        "Dissecting board",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "24.",
+        "Lempengan besi",
+        "-",
+        "-",
+        "88 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "25.",
+        "Pegas",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "26.",
+        "Neraca pegas",
+        "1000 gr",
+        "Owl",
+        "3 buah",
+        [
+          "Baik (2)",
+          "Rusak (1)"
+        ]
+      ],
+      [
+        "",
+        "27.",
+        "Neraca pegas",
+        "10 kg",
+        "Wardhana",
+        "5 buah",
+        [
+          "Baik (3)",
+          "Rusak (2)"
+        ]
+      ],
+      [
+        "",
+        "28.",
+        "Tempat lampu besar",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "29.",
+        "Klem pipa",
+        "-",
+        "-",
+        "136 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "30.",
+        "Neraca 4 lengan",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "31.",
+        "Barometer",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "32.",
+        "Bandul pemberat",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "33.",
+        "Elektroda tembaga",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "34.",
+        "Elektroda seng",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "35.",
+        "Elektroda besi",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "36.",
+        "Elektroda timbal",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 5",
+    "l": "Lemari 5",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Bohlam lampu",
+        "-",
+        "-",
+        "148 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Bohlam lampu panjang",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Kertas ticker timer",
+        "-",
+        "-",
+        "19 roll",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "4.",
+        "Plotting compass",
+        "-",
+        "PT Mega Eltra",
+        "12 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "5.",
+        "Resistor",
+        "47 Ω",
+        "-",
+        "9 buah",
+        [
+          "Baik (8)",
+          "Rusak (1)"
+        ]
+      ],
+      [
+        "",
+        "6.",
+        "Resistor",
+        "470 Ω",
+        "-",
+        "9 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "7.",
+        "Resistor",
+        "56 Ω",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "8.",
+        "Pemegang lampu",
+        "-",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "9.",
+        "Resistor",
+        "100 Ω",
+        "-",
+        "12 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "10.",
+        "Resistor switch",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "11.",
+        "Resistor led",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "12.",
+        "Toggle switch",
+        "-",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "13.",
+        "Basic meter",
+        "-",
+        "Wardhan a",
+        "11 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "14.",
+        "Galvanometer",
+        "-",
+        "-",
+        "9 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "15.",
+        "Microampere",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "16.",
+        "Voltampere",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "17.",
+        "Amperemeter",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "18.",
+        "Multimeter",
+        "-",
+        "Sunwa",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "19.",
+        "Papan rangkaian",
+        "-",
+        "-",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "20.",
+        "Konektor",
+        "-",
+        "-",
+        "58 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "21.",
+        "Adaptor",
+        "-",
+        "-",
+        "20 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "22.",
+        "Kumparan",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik (2)",
+          "Rusak (1)"
+        ]
+      ],
+      [
+        "",
+        "23.",
+        "Power supply",
+        "-",
+        "Aflah",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "24.",
+        "Power supply",
+        "-",
+        "Pudak sci entific",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "25.",
+        "Spark plug",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "26.",
+        "Banana plug",
+        "-",
+        "-",
+        "20 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "27.",
+        "Clip plug",
+        "-",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "28.",
+        "Klem statif",
+        "-",
+        "-",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "29.",
+        "Tuas",
+        "-",
+        "-",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "30.",
+        "Kabel konektor",
+        "-",
+        "-",
+        "57 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "31.",
+        "Kabel tester",
+        "-",
+        "-",
+        "11 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "32.",
+        "Kawat tembaga",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 6",
+    "l": "Lemari 6",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Power supply",
+        "-",
+        "Elindo",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Serbuk besi",
+        "-",
+        "-",
+        "2 botol",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Ticker timer",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 7",
+    "l": "Lemari 6",
+    "rows": [
+      [
+        "Rak 2",
+        "1.",
+        "Cermin lingkaran",
+        "-",
+        "-",
+        "17 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "2.",
+        "Bejana berhubungan",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "3.",
+        "Cermin datar",
+        "-",
+        "-",
+        "26 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "4.",
+        "Coil 300 lilitan",
+        "-",
+        "ps",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "5.",
+        "Coil 1200 lilitan",
+        "-",
+        "Ps",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "6.",
+        "Faraday’s coil",
+        "-",
+        "Pudak",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "7.",
+        "Galvanometer",
+        "-",
+        "",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "8.",
+        "Kompas",
+        "-",
+        "Pudak",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "9.",
+        "Multimeter analog",
+        "-",
+        "Sanwa",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "10.",
+        "Lensa cekung kecil",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "11.",
+        "Lup besar",
+        "75 mm",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "12.",
+        "Cermin datar",
+        "100 x 25",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "13.",
+        "Lup kecil",
+        "50 mm",
+        "-",
+        "11 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "14.",
+        "Multiplier",
+        "-",
+        "Elindo",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "15.",
+        "Prisma kecil",
+        "-",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "16.",
+        "Prisma besar",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "17.",
+        "Plan paralel",
+        "-",
+        "-",
+        "11 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "18.",
+        "Voltmeter",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "19.",
+        "Lensa cembung kecil",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "20.",
+        "Penjepit",
+        "-",
+        "-",
+        "15 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "21.",
+        "Kaca Pembesar",
+        "-",
+        "Magnifyin g Glass",
+        "1 box",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "22.",
+        "Lensa Cembung Besar",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "23.",
+        "Lensa Cembung Sedang",
+        "-",
+        "-",
+        "30 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 2",
+        "24.",
+        "Lensa cekumg sedang",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 8",
+    "l": "Lemari 6",
+    "rows": [
+      [
+        "Rak 1",
+        "1.",
+        "Cermin datar lipat",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "2.",
+        "Dynamometer",
+        "-",
+        "-",
+        "13 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "3.",
+        "Garputala",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "4.",
+        "Jangka sorong",
+        "-",
+        "Tricle",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "5.",
+        "Katrol kecil",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "6.",
+        "Micrometer",
+        "-",
+        "Tricle",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "7.",
+        "Pipet tetes",
+        "-",
+        "Wardhana",
+        "38 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "8.",
+        "Stetoskop",
+        "-",
+        "Wardhana",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "9.",
+        "spet",
+        "-",
+        "Wardhana",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "10.",
+        "Tali putih",
+        "-",
+        "-",
+        "8 rol",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "11.",
+        "Slinki",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "12.",
+        "Tensimeter analog",
+        "-",
+        "Wardhana",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "13.",
+        "Busur",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 1",
+        "14.",
+        "Pegas",
+        "-",
+        "-",
+        "1 box",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 9",
+    "l": "Lemari 6",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Gelas ukur",
+        "1000 mL",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Neraca ohaus 4 lengan",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Penggaris aluminium",
+        "-",
+        "-",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "4.",
+        "Penggaris plastik",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "5.",
+        "Coll Sediment",
+        "-",
+        "Pudak",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "6.",
+        "Coll of igueous rock",
+        "-",
+        "Pudak",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "7.",
+        "Mikroskop Cahaya",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Rusak"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 10",
+    "l": "Lemari 6",
+    "rows": [
+      [
+        "Rak 3",
+        "1.",
+        "Batang karet",
+        "-",
+        "-",
+        "13 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "2.",
+        "Batang plastik",
+        "-",
+        "-",
+        "19 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "3.",
+        "Batang kaca",
+        "-",
+        "-",
+        "21 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "4.",
+        "Batang pengaduk",
+        "-",
+        "-",
+        "13 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "5.",
+        "Batang plastik pipih",
+        "-",
+        "-",
+        "9 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "6.",
+        "Bangun- bangun",
+        "-",
+        "-",
+        "1 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "7.",
+        "Gelas kimia",
+        "1000 mL",
+        "Boro",
+        "3 buah",
+        [
+          "baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "8.",
+        "Gelas kimia",
+        "200 mL",
+        "Approx",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "9.",
+        "Penghambat",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "10.",
+        "Gelas erlenmeyer",
+        "100 mL",
+        "Approx",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "11.",
+        "Gelas ukur",
+        "50 mL",
+        "Yc",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "12.",
+        "Gelas ukur",
+        "25 mL",
+        "Zl",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "13.",
+        "Gelas ukur",
+        "10 mL",
+        "Pyrex",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "14.",
+        "Sumber karet",
+        "-",
+        "-",
+        "18 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "15.",
+        "Kelereng",
+        "-",
+        "-",
+        "41 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "16.",
+        "Kubus materi",
+        "-",
+        "Pudak",
+        "5 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "17.",
+        "Magnet batang panjang",
+        "-",
+        "-",
+        "7 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "18.",
+        "Magnet batang pendek",
+        "-",
+        "-",
+        "3 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "19.",
+        "Magnet U",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "20.0",
+        "Serbuk besi (tutup merah)",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "21.",
+        "Serbuk besi (tutup hijau)",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "22.",
+        "Serbuk besi (tutup kuning)",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "23.",
+        "Thermometer alkohol",
+        "-",
+        "Brannan",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "24.",
+        "Thermometer alkohol",
+        "-",
+        "Pudak",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "25.",
+        "Thermometer alkoho l",
+        "-",
+        "Wardhana",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "26.",
+        "Thermometer alkoho l",
+        "-",
+        "-",
+        "7 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "27.",
+        "Thermometer Hg",
+        "-",
+        "brannan",
+        "4 buah",
+        [
+          "Kurang Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "28.",
+        "Thermometer tanpa s kala",
+        "-",
+        "Pudak",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "29.",
+        "Thermometer glass",
+        "-",
+        "Pudak",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 3",
+        "30.",
+        "Bandul sederhana",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 11",
+    "l": "Lemari 6",
+    "rows": [
+      [
+        "Rak 4",
+        "1.",
+        "Elektroskop besar",
+        "-",
+        "-",
+        "2 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "2.",
+        "Elektroskop kecil",
+        "-",
+        "-",
+        "1 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "3.",
+        "Kain wol dan sutera",
+        "-",
+        "-",
+        "3 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "4.",
+        "Katrol",
+        "Diameter 100",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "5.",
+        "Kawat konstanta",
+        "-",
+        "Pudak",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "6.",
+        "Kawat konstanta",
+        "-",
+        "Wardhana",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "7.",
+        "Kawat nikrom",
+        "-",
+        "Pudak",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "8.",
+        "Kawat nikrom",
+        "-",
+        "Wardhana",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "9.",
+        "Kawat sikring",
+        "-",
+        "Pudak",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "10.",
+        "Kawat sikring",
+        "-",
+        "Wardhana",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "11.",
+        "Kawat tembaga",
+        "-",
+        "Pudak",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "12.",
+        "Kawat tembaga",
+        "-",
+        "Wardhana",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "13.",
+        "Kompas kecil",
+        "-",
+        "-",
+        "42 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "14.",
+        "Kumparan",
+        "250 lilitan",
+        "Wardhana",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "15.",
+        "Kumparan",
+        "250 lilitan",
+        "Pudak",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "16.",
+        "Kumparan",
+        "500 lilitan",
+        "Wardhana",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "17.",
+        "Kumparan",
+        "1000 lilitan",
+        "Pudak",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "18.",
+        "Kumparan",
+        "1000 lillitan",
+        "Wardhana",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "19.",
+        "Kawat nilon besar",
+        "-",
+        "-",
+        "1 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "20.",
+        "Kawat nilon kecil",
+        "-",
+        "-",
+        "1 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "21.",
+        "Kawat copper",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "22.",
+        "Kumparan",
+        "200 lilitan",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "Rak 4",
+        "23.",
+        "Inti besi I dan U",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 12",
+    "l": "Lemari 7",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Model Jantung",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Model Mata",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Model Telinga",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 13",
+    "l": "Lemari 8",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Kit Pemeliharaan Mikroskop",
+        "-",
+        "Wardhana",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Stopwatch",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Indikator Universal",
+        "-",
+        "-",
+        "5 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "4.",
+        "Kertas Saring",
+        "-",
+        "-",
+        "3 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "5.",
+        "Kertas Lakmus Merah",
+        "-",
+        "-",
+        "11 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "6.",
+        "Kertas Lakmus Biru",
+        "-",
+        "-",
+        "15 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "7.",
+        "Molecular Models",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "8.",
+        "Cawan Petri",
+        "-",
+        "-",
+        "22 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "9.",
+        "Kit Pembersih Lensa",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 14",
+    "l": "",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Respirometer",
+        "-",
+        "-",
+        "8 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Alat Peraga Bryophyta",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Alat Peraga Pteridophyta",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "4.",
+        "Alat Peraga Bioplastik Pteridophyta",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "5.",
+        "Preparat",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "6.",
+        "Plastik Bening",
+        "-",
+        "-",
+        "15 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "7.",
+        "Kaca Arloji",
+        "-",
+        "-",
+        "11 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "8.",
+        "Mesh Filter Disc",
+        "-",
+        "-",
+        "4 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "9.",
+        "Kaca Benda",
+        "-",
+        "-",
+        "11 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "10.",
+        "Kaca Penutup",
+        "-",
+        "-",
+        "16 pack",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "11.",
+        "Osmometer",
+        "-",
+        "-",
+        "16 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "12.",
+        "Termometer Badan",
+        "-",
+        "-",
+        "9 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "13.",
+        "Tabung Berskala",
+        "-",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 15",
+    "l": "Lemari 9",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Alat Bedah",
+        "-",
+        "-",
+        "9 set",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Kotak Genetika",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Lensa Mikroskop",
+        "-",
+        "-",
+        "11 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "4.",
+        "Kertas Osmosis",
+        "-",
+        "-",
+        "50 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "5.",
+        "Kartu Tumbuhan",
+        "-",
+        "-",
+        "6 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "6.",
+        "Kartu Hewan",
+        "-",
+        "-",
+        "5 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "7.",
+        "Kotak Preparat Kering",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "8.",
+        "Kit Gymnospermae",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "9.",
+        "Kit Bryophyta",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "10.",
+        "Kit Pteridophyta",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "11.",
+        "Kuadrat Lipat",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "12.",
+        "Kancing Genetika",
+        "-",
+        "-",
+        "2 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  },
+  {
+    "t": "Tabel 16",
+    "l": "Lemari 16",
+    "rows": [
+      [
+        "",
+        "1.",
+        "Mikroskop Cahaya",
+        "-",
+        "-",
+        "10 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "2.",
+        "Mikroskop Otereo",
+        "-",
+        "-",
+        "3 buah",
+        [
+          "Baik"
+        ]
+      ],
+      [
+        "",
+        "3.",
+        "Mikroskop Listrik",
+        "-",
+        "-",
+        "1 buah",
+        [
+          "Baik"
+        ]
+      ]
+    ]
+  }
+]
