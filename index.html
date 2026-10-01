@@ -10,7 +10,6 @@
 <style>
   /* ============ TOKENS ============ */
   :root{
-    color-scheme: light dark;
     --navy-950:#072B4D;
     --navy-900:#092D4E;
     --blue-700:#1568B4;
@@ -40,70 +39,25 @@
     --radius:14px;
     --font-body:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
     --font-title:'Bebas Neue','Arial Narrow',Impact,sans-serif;
-
-    --photo-a:url("assets/images/hero.jpg");
-    --photo-b:url("assets/images/lab.jpg");
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --sheet:#0e1a29;
-      --panel:#152740;
-      --panel-strong:#1b3352;
-      --field:#1d3450;
-      --card:#12233a;
-      --text:#dbe7f3;
-      --text-soft:#b9c9da;
-      --muted:#93a4b6;
-      --title:#cfe5fb;
-      --line:#274262;
-      --accent:#2a95dc;
-      --accent-hover:#48a6e6;
-      --ok-bg:#15382a;   --ok-fg:#8fe0b1;
-      --warn-bg:#40300f; --warn-fg:#f3cf85;
-      --bad-bg:#45201e;  --bad-fg:#ffb3ad;
-      --neutral-bg:#233a54; --neutral-fg:#c3d6ea;
-    }
-  }
-  :root[data-theme="dark"]{
-    --sheet:#0e1a29;
-    --panel:#152740;
-    --panel-strong:#1b3352;
-    --field:#1d3450;
-    --card:#12233a;
-    --text:#dbe7f3;
-    --text-soft:#b9c9da;
-    --muted:#93a4b6;
-    --title:#cfe5fb;
-    --line:#274262;
-    --accent:#2a95dc;
-    --accent-hover:#48a6e6;
-    --ok-bg:#15382a;   --ok-fg:#8fe0b1;
-    --warn-bg:#40300f; --warn-fg:#f3cf85;
-    --bad-bg:#45201e;  --bad-fg:#ffb3ad;
-    --neutral-bg:#233a54; --neutral-fg:#c3d6ea;
   }
 
   /* ============ BASE ============ */
   *,*::before,*::after{box-sizing:border-box;}
-  :root{
-    box-sizing:border-box;
-    padding-top:env(safe-area-inset-top,0px);
-    padding-bottom:env(safe-area-inset-bottom,0px);
-  }
   html{
     min-height:100%;
-    background:#0d4f8f;
+    background:var(--blue-700);
     scroll-behavior:smooth;
     scroll-padding-top:calc(96px + env(safe-area-inset-top,0px));
   }
   body{
     margin:0;min-height:100%;
-    display:flex;flex-direction:column;
     font-family:var(--font-body);
     font-size:15px;line-height:1.6;
     color:var(--text);
-    background:var(--blue-700);
+    background:var(--sheet);
     -webkit-text-size-adjust:100%;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
   }
   img{max-width:100%;}
   a{color:inherit;text-decoration:none;}
@@ -119,326 +73,183 @@
 
   /* ============ NAVBAR ============ */
   .nav-shell{
-    position:fixed;top:0;left:0;right:0;z-index:40;
-    padding:calc(16px + env(safe-area-inset-top,0px)) 16px 0;
-    pointer-events:none;
+    position:sticky;top:0;left:0;right:0;z-index:40;
+    padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;
+    background:transparent;
   }
   .navbar{
-    pointer-events:auto;position:relative;
-    max-width:1004px;margin:0 auto;
+    position:relative;max-width:1004px;margin:0 auto;
     display:flex;align-items:center;justify-content:space-between;gap:20px;
-    padding:12px 34px 12px 56px;
-    border-radius:999px;
-    background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.38);
+    padding:12px 28px;border-radius:999px;
+    background:rgba(9,45,78,.62);
+    border:1px solid rgba(255,255,255,.22);
     backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);
     box-shadow:0 8px 30px rgba(4,24,48,.18);
-    transition:background .25s ease,border-color .25s ease;
   }
-  .navbar.scrolled{background:rgba(9,45,78,.84);border-color:rgba(255,255,255,.18);}
-  .brand{color:#fff;line-height:1.15;white-space:nowrap;}
-  .brand strong{display:block;font-size:19px;font-weight:700;letter-spacing:.3px;}
-  .brand span{display:block;font-size:11.5px;font-weight:500;opacity:.92;}
-  .nav-links{display:flex;align-items:center;gap:6px;}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;line-height:1.15;white-space:nowrap;}
+  .brand-badge{
+    width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 auto;
+  }
+  .brand strong{display:block;font-size:17px;font-weight:700;letter-spacing:.3px;}
+  .brand span{display:block;font-size:10.5px;font-weight:500;opacity:.9;}
+  .nav-links{display:flex;align-items:center;gap:4px;}
   .nav-links a{
-    position:relative;color:#fff;font-size:14px;font-weight:600;
-    padding:9px 14px;border-radius:999px;white-space:nowrap;
+    position:relative;color:#fff;font-size:13.5px;font-weight:600;
+    padding:9px 13px;border-radius:999px;white-space:nowrap;
     transition:background .15s ease;
   }
   .nav-links a:hover{background:rgba(255,255,255,.14);}
   .nav-links a.active{background:rgba(255,255,255,.24);}
-  .nav-links a.active::after{
-    content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;border-radius:2px;background:#fff;
-  }
   .nav-toggle{
-    display:none;width:42px;height:42px;border:none;border-radius:50%;
+    display:none;width:40px;height:40px;border:none;border-radius:50%;
     background:rgba(255,255,255,.18);color:#fff;cursor:pointer;
-    align-items:center;justify-content:center;
+    align-items:center;justify-content:center;flex:0 0 auto;
   }
-  .nav-toggle svg{display:block;}
   @media (max-width:860px){
-    .navbar{padding:10px 12px 10px 24px;}
+    .navbar{padding:10px 12px 10px 20px;}
     .nav-toggle{display:inline-flex;}
     .nav-links{
       position:absolute;top:calc(100% + 10px);left:0;right:0;
       flex-direction:column;align-items:stretch;gap:2px;padding:10px;
-      background:rgba(9,45,78,.94);border:1px solid rgba(255,255,255,.16);border-radius:22px;
+      background:rgba(9,45,78,.96);border:1px solid rgba(255,255,255,.16);border-radius:22px;
       backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
       opacity:0;visibility:hidden;transform:translateY(-8px);
       transition:opacity .18s ease,transform .18s ease,visibility .18s;
     }
     .nav-links.open{opacity:1;visibility:visible;transform:none;}
     .nav-links a{padding:13px 16px;border-radius:14px;}
-    .nav-links a.active::after{display:none;}
   }
 
-  /* ============ HERO / GATE ============ */
+  /* ============ HERO (banner selamat datang) ============ */
   .hero{
-    position:relative;overflow:hidden;isolation:isolate;
-    flex:1 0 auto;min-height:760px;
-    margin-bottom:-28px;
-    padding:150px 20px 84px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    margin-top:-78px;padding:130px 20px 80px;
+    background:linear-gradient(200deg,#1568B4 0%,#092D4E 100%);
     color:#fff;text-align:center;
   }
-  .hero-bg{
-    position:absolute;inset:-40px;z-index:-2;
-    background:var(--photo-a) center 60%/cover no-repeat;
-    filter:blur(15px) saturate(1.15);
-  }
-  .hero::after{
-    content:"";position:absolute;inset:0;z-index:-1;
-    background:linear-gradient(185deg,rgba(35,118,196,.80) 0%,rgba(17,79,140,.86) 55%,rgba(9,45,78,.92) 100%);
-  }
   .hero h1{
-    margin:0 auto 44px;max-width:780px;
-    font-size:clamp(26px,4.4vw,42px);line-height:1.25;font-weight:700;
-    text-shadow:0 2px 18px rgba(4,24,48,.35);
+    margin:0 auto;max-width:760px;
+    font-size:clamp(24px,4vw,36px);line-height:1.3;font-weight:700;
   }
-  .gate-card{
-    width:100%;max-width:830px;text-align:left;
-    background:var(--card);color:var(--text);
-    border-radius:28px;overflow:hidden;
-    box-shadow:0 26px 60px rgba(4,24,48,.38);
-  }
-  .gate-body{
-    display:grid;grid-template-columns:1fr 232px;gap:32px;
-    padding:32px 32px 30px;
-  }
-  .gate-body h2{
-    margin:0 0 18px;font-size:clamp(20px,2.6vw,25px);line-height:1.3;font-weight:700;color:var(--text);
-  }
-  .field{margin-bottom:14px;}
-  .field label{display:block;margin-bottom:8px;font-size:16px;font-weight:600;color:var(--text-soft);}
-  .field input{
-    width:100%;border:2px solid transparent;border-radius:12px;background:var(--field);
-    padding:14px 18px;font-size:16px;color:var(--text);
-  }
-  .field input::placeholder{color:var(--muted);}
-  .field input:focus{outline:none;border-color:var(--accent);}
-  .btn-primary{
-    display:inline-flex;align-items:center;justify-content:center;
-    border:none;border-radius:12px;background:var(--accent);color:#fff;
-    font-weight:700;font-size:16px;padding:14px 22px;cursor:pointer;
-    transition:background .15s ease;
-  }
-  .btn-primary:hover{background:var(--accent-hover);}
-  .btn-primary.block{width:100%;margin-top:6px;}
-  .btn-primary:disabled{opacity:.6;cursor:default;}
-  .gate-hint{margin:10px 0 0;min-height:1.4em;font-size:13px;font-weight:600;color:#c0392b;}
-  .gate-photo{
-    border-radius:22px;min-height:260px;
-    background:var(--photo-a) 72% center/cover no-repeat,var(--field);
-  }
-  .gate-note{
-    display:flex;align-items:center;gap:12px;
-    margin:0;padding:17px 32px;background:var(--field);
-    font-size:14.5px;font-weight:600;color:var(--text-soft);
-  }
-  .gate-note svg{flex:0 0 auto;}
-  .welcome-sub{margin:0 0 24px;color:var(--text-soft);font-size:16px;}
-  .welcome-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;}
-  .link-btn{
-    border:none;background:none;padding:6px 2px;cursor:pointer;
-    font-size:14px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px;
-  }
-  @media (max-width:720px){
-    .hero{padding-top:128px;min-height:640px;}
-    .gate-body{grid-template-columns:1fr;padding:24px 22px;}
-    .gate-photo{display:none;}
-    .gate-note{padding:15px 22px;font-size:13.5px;}
-  }
+  .hero p{margin:10px auto 0;max-width:600px;font-size:14px;color:#cfe3f7;}
 
-  /* ============ SHEETS & SECTIONS ============ */
-  .site{position:relative;z-index:1;flex:0 0 auto;}
-  .sheet{background:var(--sheet);position:relative;}
-  .sheet-top{border-radius:28px 28px 0 0;}
-  .sheet-bottom{border-radius:28px 28px 28px 28px;margin:-28px 0 40px;position:relative;z-index:1;}
-  .section{padding:72px 0;}
-  .divider{
-    height:3px;border:0;margin:0 auto;max-width:1056px;background:var(--blue-500);border-radius:2px;
-  }
-  .sheet-top > .divider:first-child{margin-top:0;}
+  /* ============ SECTIONS ============ */
+  .section{padding:64px 0;}
+  .section.alt{background:var(--panel);}
   .section-title{
     margin:0 0 8px;text-align:center;
     font-family:var(--font-title);font-weight:400;letter-spacing:.5px;line-height:1;
-    font-size:clamp(46px,7vw,68px);color:var(--title);
+    font-size:clamp(44px,7vw,64px);color:var(--title);
   }
   .section-sub{
-    margin:0 0 36px;text-align:center;font-weight:700;
+    margin:0 0 34px;text-align:center;font-weight:700;
     font-size:clamp(17px,2.4vw,24px);color:var(--title);
   }
 
   /* ---------- Home ---------- */
   .profile{
-    display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:32px;
-    background:var(--panel);border-radius:var(--radius);padding:44px 44px;
+    display:flex;gap:24px;flex-wrap:wrap;align-items:stretch;
   }
   .profile-photo{
-    border-radius:12px;min-height:420px;
-    background:var(--photo-b) center/cover no-repeat,var(--card);
+    flex:1 1 220px;min-height:280px;border-radius:12px;background:var(--card);
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-weight:600;font-size:13.5px;text-align:center;padding:14px;
   }
+  .profile-text{flex:1.6 1 320px;}
   .profile-text h3{margin:0 0 14px;font-size:22px;font-weight:700;color:var(--title);}
-  .profile-text p{margin:0 0 14px;font-size:15px;line-height:1.75;color:var(--text-soft);}
+  .profile-text p{margin:0 0 14px;font-size:15px;line-height:1.75;color:var(--text-soft);text-align:justify;}
   .profile-text p:last-child{margin-bottom:0;}
-  .profile-side{display:flex;flex-direction:column;gap:22px;}
-  .profile-side .photo{
-    flex:0 0 auto;aspect-ratio:369/229;border-radius:12px;
-    background:var(--photo-a) center/cover no-repeat,var(--card);
-  }
-  .info-card{
-    flex:1;background:var(--card);border-radius:12px;padding:20px 22px;
-  }
+  .profile-side{flex:1 1 220px;display:flex;flex-direction:column;gap:16px;}
+  .info-card{flex:1;background:var(--panel);border-radius:12px;padding:20px 22px;}
   .info-card h4{margin:0 0 12px;font-size:15px;font-weight:700;color:var(--title);}
   .info-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:13.5px;}
   .info-card dt{font-weight:600;color:var(--muted);}
   .info-card dd{margin:0;color:var(--text);}
-  @media (max-width:980px){
-    .profile{grid-template-columns:1fr 1fr;padding:32px;}
-    .profile-text{grid-column:1 / -1;order:3;}
-    .profile-photo{min-height:320px;}
-  }
-  @media (max-width:560px){
-    .profile{grid-template-columns:1fr;padding:20px;gap:22px;}
-    .profile-text{order:0;}
-    .profile-photo{order:-1;min-height:260px;}
-  }
+  @media (max-width:760px){.profile{flex-direction:column;}}
 
   /* ---------- Struktur ---------- */
   .org-figure{margin:0 0 40px;}
   .org-figure:last-child{margin-bottom:0;}
-  .org-figure img{display:block;width:100%;height:auto;border-radius:14px;}
-  .struktur-title{margin-bottom:36px;}
+  .org-figure img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 10px 30px rgba(9,45,78,.1);}
 
   /* ---------- Peminjaman ---------- */
-  .table-wrap{
-    background:var(--panel);border-radius:var(--radius);padding:20px;
-  }
+  .table-wrap{background:var(--panel);border-radius:var(--radius);padding:20px;}
   .table-scroll{overflow-x:auto;border-radius:10px;background:var(--card);}
   table{width:100%;border-collapse:collapse;min-width:680px;font-size:13.5px;}
-  thead th{
-    text-align:left;background:var(--panel-strong);color:var(--title);
-    padding:13px 16px;font-size:13px;font-weight:700;
-  }
+  thead th{text-align:left;background:var(--panel-strong);color:var(--title);padding:13px 16px;font-size:13px;font-weight:700;}
   tbody td{padding:12px 16px;border-top:1px solid var(--line);color:var(--text-soft);vertical-align:top;}
-  .status-pill,.pill{
-    display:inline-block;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;line-height:1.4;
-    background:var(--neutral-bg);color:var(--neutral-fg);
-  }
-  .pill.good{background:var(--ok-bg);color:var(--ok-fg);}
-  .pill.warn{background:var(--warn-bg);color:var(--warn-fg);}
-  .pill.bad{background:var(--bad-bg);color:var(--bad-fg);}
+  .status-pill{display:inline-block;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;background:var(--neutral-bg);color:var(--neutral-fg);}
   .empty-note{padding:36px 20px;text-align:center;color:var(--muted);font-weight:600;font-size:14px;}
   .table-help{margin:16px 4px 0;font-size:13.5px;color:var(--text-soft);text-align:center;}
   .table-help a{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
 
   /* ---------- Inventaris ---------- */
-  .band{
-    position:relative;isolation:isolate;overflow:hidden;
-    padding:72px 0 112px;
-  }
-  .band-bg{
-    position:absolute;inset:-30px;z-index:-2;
-    background:var(--photo-b) center 40%/cover no-repeat;
-    filter:blur(9px) saturate(1.1);
-  }
-  .band::after{
-    content:"";position:absolute;inset:0;z-index:-1;
-    background:linear-gradient(180deg,rgba(24,104,182,.86) 0%,rgba(14,71,128,.90) 100%);
-  }
-  .band .section-title{color:#fff;margin-bottom:34px;}
-  .inv-card-wrap{
-    max-width:880px;margin:0 auto;background:var(--sheet);border-radius:10px;padding:28px;
-    box-shadow:0 20px 50px rgba(4,24,48,.28);
-  }
+  .inv-card-wrap{background:var(--card);border-radius:var(--radius);padding:24px;}
   .inv-tools{display:flex;gap:12px;flex-wrap:wrap;}
   .inv-search{flex:1 1 280px;position:relative;}
   .inv-search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;}
   .inv-search input,.inv-select{
     width:100%;border:2px solid transparent;border-radius:12px;background:var(--panel);
-    padding:15px 18px;font-size:15px;font-weight:500;color:var(--text);
+    padding:14px 16px;font-size:14.5px;font-weight:500;color:var(--text);
   }
-  .inv-search input{padding-left:48px;}
+  .inv-search input{padding-left:46px;}
   .inv-search input::placeholder{color:var(--muted);}
-  .inv-search input:focus,.inv-select:focus{outline:none;border-color:var(--accent);}
-  .inv-select{flex:0 1 200px;cursor:pointer;}
+  .inv-search input:focus,.inv-select:focus{outline:none;border:2px solid var(--accent);}
+  .inv-select{flex:0 1 220px;cursor:pointer;}
   .inv-count{margin:14px 4px 0;font-size:13px;color:var(--muted);font-weight:500;}
-  .inv-panel{margin-top:12px;background:var(--panel);border-radius:10px;padding:30px 36px 34px;}
-  .inv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 30px;}
-  .inv-card{
-    display:flex;flex-direction:column;align-items:center;gap:8px;
-    border:none;background:none;padding:0;text-align:center;color:var(--text);
-  }
+  .inv-panel{margin-top:14px;background:var(--panel);border-radius:10px;padding:26px 24px 30px;}
+  .inv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 24px;}
+  .inv-card{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
   .inv-detail-btn{
     width:100%;border:none;background:transparent;padding:0;cursor:pointer;text-align:center;color:inherit;
     display:flex;flex-direction:column;align-items:center;gap:8px;
   }
   .inv-detail-btn:hover .inv-thumb,.inv-detail-btn:focus-visible .inv-thumb{border-color:var(--accent);}
-  .inv-borrow-btn{
-    width:100%;border:none;border-radius:9px;background:var(--accent);color:#fff;
-    padding:8px 10px;font-size:12px;font-weight:700;cursor:pointer;
-    transition:background .15s ease,transform .15s ease;
-  }
-  .inv-borrow-btn:hover{background:var(--accent-hover);transform:translateY(-1px);}
-  .inv-borrow-btn:focus-visible{outline:3px solid var(--blue-300);outline-offset:2px;}
   .inv-thumb{
-    width:100%;aspect-ratio:214/136;border-radius:10px;background:var(--card);
-    display:flex;align-items:center;justify-content:center;font-size:46px;line-height:1;
-    border:2px solid transparent;transition:border-color .15s ease,transform .15s ease;
+    width:100%;aspect-ratio:3/2;border-radius:10px;background:var(--card);
+    display:flex;align-items:center;justify-content:center;font-size:40px;line-height:1;
+    border:2px solid transparent;transition:border-color .15s ease;
   }
   .inv-name{font-size:14px;font-weight:600;line-height:1.3;}
   .inv-meta{margin-top:-6px;font-size:12px;color:var(--muted);line-height:1.4;}
-  .inv-empty{grid-column:1/-1;text-align:center;color:var(--muted);font-weight:600;padding:30px 10px;}
-  .inv-more{display:flex;justify-content:center;margin-top:30px;}
-  .btn-outline{
-    border:2px solid var(--accent);background:transparent;color:var(--accent);
-    font-weight:700;font-size:14px;padding:11px 22px;border-radius:12px;cursor:pointer;
+  .inv-borrow-btn{
+    width:100%;border:none;border-radius:9px;background:var(--accent);color:#fff;
+    padding:9px 10px;font-size:12px;font-weight:700;cursor:pointer;transition:background .15s ease;
   }
+  .inv-borrow-btn:hover{background:var(--accent-hover);}
+  .inv-empty{grid-column:1/-1;text-align:center;color:var(--muted);font-weight:600;padding:30px 10px;}
+  .inv-more{display:flex;justify-content:center;margin-top:26px;}
+  .btn-outline{border:2px solid var(--accent);background:transparent;color:var(--accent);font-weight:700;font-size:14px;padding:11px 22px;border-radius:12px;cursor:pointer;}
   .btn-outline:hover{background:var(--accent);color:#fff;}
   @media (max-width:820px){
-    .inv-card-wrap{padding:18px;margin:0 16px;}
-    .inv-panel{padding:22px 18px 26px;}
-    .inv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px;}
+    .inv-card-wrap{padding:18px;}
+    .inv-panel{padding:20px 16px 24px;}
+    .inv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px;}
     .inv-select{flex:1 1 100%;}
   }
-  @media (max-width:420px){
-    .inv-thumb{font-size:38px;}
-  }
+  @media (max-width:420px){.inv-thumb{font-size:34px;}}
 
   /* ---------- SOP & K3 ---------- */
-  .k3-panel{
-    display:flex;gap:24px;align-items:flex-start;
-    background:var(--panel);border-radius:var(--radius);padding:clamp(16px,4vw,48px);
-  }
+  .k3-panel{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
   .k3-panel figure{margin:0;}
   .k3-panel img{display:block;width:100%;height:auto;border-radius:12px;}
-  .k3-apd{flex:394 1 0;}
-  .k3-awas{flex:669 1 0;}
-  @media (max-width:720px){
-    .k3-panel{flex-direction:column;align-items:center;}
-    .k3-apd{width:100%;max-width:394px;flex:none;}
-    .k3-awas{width:100%;max-width:669px;flex:none;}
-  }
-  .limbah-title{margin:72px 0 24px;text-align:center;font-size:clamp(18px,2.4vw,22px);font-weight:700;color:var(--title);}
-  .limbah{
-    display:grid;grid-template-columns:1fr 1fr;gap:48px;
-    background:var(--panel);border-radius:var(--radius);padding:clamp(22px,4vw,48px);
-  }
-  .limbah h3{margin:0 0 14px;font-size:22px;font-weight:700;color:var(--title);}
-  .limbah h4{margin:20px 0 6px;font-size:13.5px;font-weight:700;color:var(--title);}
+  .k3-apd{flex:1 1 300px;max-width:394px;}
+  .k3-awas{flex:2 1 420px;max-width:669px;}
+  .limbah-title{margin:60px 0 24px;text-align:center;font-size:clamp(18px,2.4vw,22px);font-weight:700;color:var(--title);}
+  .limbah{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;background:var(--panel);border-radius:var(--radius);padding:clamp(22px,4vw,40px);}
+  .limbah h3{margin:0 0 12px;font-size:18px;font-weight:700;color:var(--title);}
+  .limbah h4{margin:16px 0 6px;font-size:12.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.4px;}
   .limbah h4:first-of-type{margin-top:0;}
-  .limbah p,.limbah li{margin:0 0 8px;font-size:14px;line-height:1.75;color:var(--text-soft);}
-  .limbah ol{margin:0 0 34px;padding-left:22px;}
-  .limbah .block-gap{margin-bottom:34px;}
-  .limbah .lines p{margin:0;}
-  @media (max-width:820px){.limbah{grid-template-columns:1fr;gap:34px;}}
+  .limbah p,.limbah li{margin:0 0 8px;font-size:13.5px;line-height:1.7;color:var(--text-soft);}
+  .limbah ul{margin:0;padding-left:18px;}
+  @media (max-width:860px){.limbah{grid-template-columns:1fr;gap:26px;}}
 
   /* ---------- Footer ---------- */
-  .footer{padding:52px 24px 44px;}
-  .footer-inner{max-width:1056px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px;}
-  .footer dt{font-weight:700;color:var(--title);}
-  .footer dd{margin:0;color:var(--text-soft);}
-  .footer dd a{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+  .footer{background:linear-gradient(195deg,#1568B4 0%,#092D4E 100%);color:#eaf5ff;padding:44px 24px calc(44px + env(safe-area-inset-bottom,0px));}
+  .footer-inner{max-width:1056px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:13.5px;}
+  .footer dt{font-weight:700;color:#fff;}
+  .footer dd{margin:0;color:#cfe3f7;}
+  .footer dd a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px;}
   @media (max-width:560px){.footer-inner{grid-template-columns:1fr;gap:0;}.footer dd{margin-bottom:10px;}}
 
   /* ============ MODALS ============ */
@@ -447,24 +258,21 @@
     display:flex;align-items:center;justify-content:center;
     padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px));
   }
-  .modal{
-    width:100%;max-width:440px;max-height:100%;overflow:auto;
-    background:var(--card);color:var(--text);border-radius:20px;padding:26px;
-    box-shadow:0 30px 70px rgba(0,0,0,.35);
-  }
+  .modal{width:100%;max-width:440px;max-height:100%;overflow:auto;background:var(--card);color:var(--text);border-radius:20px;padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.35);}
   .modal-wide{max-width:760px;}
   .modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:6px;}
   .modal h3{margin:0;font-size:20px;line-height:1.3;color:var(--title);}
   .modal .sub{margin:2px 0 18px;font-size:13px;color:var(--muted);}
-  .icon-btn{
-    flex:0 0 auto;width:36px;height:36px;border:none;border-radius:50%;background:var(--field);
-    color:var(--text);font-size:20px;line-height:1;cursor:pointer;
-  }
+  .icon-btn{flex:0 0 auto;width:36px;height:36px;border:none;border-radius:50%;background:var(--field);color:var(--text);font-size:20px;line-height:1;cursor:pointer;}
   .modal .table-scroll{background:var(--panel);}
   .modal table{min-width:560px;font-size:13px;}
   .modal thead th{background:var(--panel-strong);}
   .modal tbody td{border-top:1px solid var(--line);}
   .pill-row{display:flex;flex-wrap:wrap;gap:4px;}
+  .pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:11.5px;font-weight:700;background:var(--neutral-bg);color:var(--neutral-fg);}
+  .pill.good{background:var(--ok-bg);color:var(--ok-fg);}
+  .pill.warn{background:var(--warn-bg);color:var(--warn-fg);}
+  .pill.bad{background:var(--bad-bg);color:var(--bad-fg);}
   .modal-field{margin-bottom:14px;}
   .modal-field label{display:block;margin-bottom:6px;font-size:13px;font-weight:600;color:var(--text-soft);}
   .modal-field input,.modal-field textarea,.modal-field select{
@@ -472,11 +280,14 @@
     padding:11px 13px;font-size:14px;color:var(--text);resize:vertical;
   }
   .modal-field input:focus,.modal-field textarea:focus,.modal-field select:focus{outline:none;border-color:var(--accent);}
-  .modal-field input[readonly]{opacity:.85;}
+  .modal-row{display:flex;gap:10px;}
+  .modal-row .modal-field{flex:1;}
   .modal-actions{display:flex;gap:10px;margin-top:20px;}
   .modal-actions button{flex:1;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;}
   .btn-ghost{background:var(--field);color:var(--text);}
-  .modal-actions .btn-primary{border-radius:10px;font-size:14px;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-hover);}
+  .btn-primary:disabled{opacity:.6;cursor:default;}
   .form-msg{margin-top:12px;font-size:13px;font-weight:600;min-height:1.3em;}
   .form-msg.ok{color:var(--ok-fg);}
   .form-msg.err{color:var(--bad-fg);}
@@ -486,16 +297,19 @@
 
 <!-- ================= NAVBAR ================= -->
 <header class="nav-shell">
-  <nav class="navbar" id="navbar" aria-label="Navigasi utama">
-    <a class="brand" href="#top" data-nav="top">
-      <strong>LABORATORIUM</strong>
-      <span>LABORATORIUM IPA SMPN 34</span>
-    </a>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+  <nav class="navbar" aria-label="Navigasi utama">
+    <div class="brand">
+      <div class="brand-badge">🔬</div>
+      <div>
+        <strong>LABORATORIUM</strong>
+        <span>LABORATORIUM IPA SMPN 34</span>
+      </div>
+    </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Buka menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="#top" data-nav="top" class="active">Home</a>
+      <a href="#home" data-nav="home" class="active">Home</a>
       <a href="#struktur" data-nav="struktur">Struktur Organisasi</a>
       <a href="#peminjaman" data-nav="peminjaman">Peminjaman</a>
       <a href="#inventaris" data-nav="inventaris">Inventaris</a>
@@ -504,212 +318,151 @@
   </nav>
 </header>
 
-<!-- ================= HERO / FORM PENGUNJUNG ================= -->
-<section class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
+<!-- ================= HERO ================= -->
+<section class="hero">
   <h1>Selamat Datang di Website Laboratorium IPA SMPN 34 Surabaya</h1>
+  <p>Cek struktur organisasi, inventaris alat, dan SOP &amp; K3 laboratorium di sini.</p>
+</section>
 
-  <div class="gate-card">
-    <div class="gate-body">
-      <div>
-        <div id="gateFormWrap">
-          <h2>Silahkan Isi Nama Sebelum Mengakses Laboratorium</h2>
-          <form id="gateForm" autocomplete="off">
-            <div class="field">
-              <label for="gateNama">Nama Lengkap</label>
-              <input id="gateNama" type="text" placeholder="Nama Lengkap" required>
-            </div>
-            <div class="field">
-              <label for="gateInstitusi">Institusi/Kelas</label>
-              <input id="gateInstitusi" type="text" placeholder="Institusi/Kelas" required>
-            </div>
-            <button type="submit" class="btn-primary block">Masuk</button>
-            <p class="gate-hint" id="gateHint" role="status"></p>
-          </form>
-        </div>
-        <div id="gateWelcome" class="hidden">
-          <h2>Halo, <span id="welcomeNama"></span></h2>
-          <p class="welcome-sub" id="welcomeInst"></p>
-          <div class="welcome-actions">
-            <a class="btn-primary" href="#home" data-nav="top">Lihat Profil Laboratorium</a>
-            <button type="button" class="link-btn" id="gateReset">Bukan Anda? Ganti nama</button>
-          </div>
+<!-- ================= HOME ================= -->
+<section id="home" class="section">
+  <div class="wrap">
+    <h2 class="section-title">HOME</h2>
+    <h3 class="section-sub">Profil Laboratorium</h3>
+    <div class="profile">
+      <div class="profile-photo">Foto Laboratorium</div>
+      <div class="profile-text">
+        <h3>Tentang Laboratorium IPA</h3>
+        <p>Laboratorium IPA SMPN 34 Surabaya adalah ruang praktikum yang digunakan siswa-siswi untuk melakukan percobaan mata pelajaran IPA secara langsung, mulai dari pengamatan biologi, reaksi sederhana kimia, hingga eksperimen fisika. Laboratorium ini dilengkapi dengan alat dan bahan praktikum yang dikelola oleh Kepala Laboratorium bersama guru mata pelajaran IPA, dengan tetap mengutamakan keselamatan dan kenyamanan selama kegiatan berlangsung.</p>
+        <p>Melalui website ini, siswa maupun tamu dapat melihat struktur organisasi pengelola laboratorium, mengecek ketersediaan inventaris alat, mengajukan peminjaman, serta mempelajari SOP dan prosedur K3 sebelum menggunakan laboratorium.</p>
+      </div>
+      <div class="profile-side">
+        <div class="info-card">
+          <h4>Informasi Laboratorium</h4>
+          <dl>
+            <dt>Jam buka</dt><dd>07.10 – 13.20</dd>
+            <dt>Kontak</dt><dd>Bu Mei, 081252283830</dd>
+            <dt>Lokasi</dt><dd>Jl. Menganti Wiyung, Kec. Wiyung, Surabaya</dd>
+          </dl>
         </div>
       </div>
-      <div class="gate-photo" role="img" aria-label="Foto meja praktikum dengan labu dan tabung reaksi"></div>
     </div>
-    <p class="gate-note">
-      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#4a5158"/><rect x="11.6" y="11" width="2.8" height="8" rx="1.2" fill="#fff"/><circle cx="13" cy="7.6" r="1.7" fill="#fff"/></svg>
-      Data pengunjung tersimpan otomatis untuk keamanan
-    </p>
   </div>
 </section>
 
-<!-- ================= SITE ================= -->
-<main class="site hidden" id="site">
-
-  <div class="sheet sheet-top">
-
-    <!-- ===== HOME ===== -->
-    <section id="home" class="section">
-      <div class="wrap">
-        <h2 class="section-title">HOME</h2>
-        <h3 class="section-sub">Profil Laboratorium</h3>
-        <div class="profile">
-          <div class="profile-photo" role="img" aria-label="Rak praktikum berisi labu Erlenmeyer berisi cairan warna-warni"></div>
-          <div class="profile-text">
-            <h3>Tentang Laboratorium IPA</h3>
-            <p>Laboratorium IPA SMPN 34 Surabaya adalah ruang praktikum yang digunakan siswa-siswi untuk melakukan percobaan mata pelajaran IPA secara langsung, mulai dari pengamatan biologi, reaksi sederhana kimia, hingga eksperimen fisika. Laboratorium ini dilengkapi dengan alat dan bahan praktikum yang dikelola oleh Kepala Laboratorium bersama guru mata pelajaran IPA, dengan tetap mengutamakan keselamatan dan kenyamanan selama kegiatan berlangsung.</p>
-            <p>Melalui website ini, siswa maupun tamu dapat melihat struktur organisasi pengelola laboratorium, mengecek ketersediaan inventaris alat, mengajukan peminjaman, serta mempelajari SOP dan prosedur K3 sebelum menggunakan laboratorium.</p>
-          </div>
-          <div class="profile-side">
-            <div class="photo" role="img" aria-label="Meja laboratorium dengan deretan labu dan botol reagen"></div>
-            <div class="info-card">
-              <h4>Informasi Laboratorium</h4>
-              <dl>
-                <dt>Jam buka</dt><dd>07.10 – 13.20</dd>
-                <dt>Kontak</dt><dd>Bu Mei, 081252283830</dd>
-                <dt>Lokasi</dt><dd>Jl. Menganti Wiyung, Kec. Wiyung, Surabaya</dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ===== STRUKTUR ORGANISASI ===== -->
-    <section id="struktur" class="section">
-      <div class="wrap">
-        <h2 class="section-title struktur-title">STRUKTUR ORGANISASI</h2>
-        <figure class="org-figure">
-          <img src="assets/images/struktur-organisasi-1.png" width="1210" height="1022" loading="lazy"
-               alt="Struktur Organisasi Laboratorium IPA. Kepala Sekolah Wiwik Yulianti, S.Pd., M.Pd membawahi Kurikulum (Denok Siti Fatimah, S.Pd.) dan Sarpras (Drs. Siti Maftuhatin, M.Pd.). Kepala Laboratorium Mei Hajati, S.Pd. membawahi empat guru mata pelajaran IPA: Mei Hajati, S.Pd.; Nadya Ayu N, S.Pd.; Yudo Grahono S, S.Pd.; dan Dinda, S.Pd., yang melayani siswa-siswi SMPN 34 Surabaya.">
-        </figure>
-        <figure class="org-figure">
-          <img src="assets/images/struktur-organisasi-2.png" width="1210" height="1229" loading="lazy"
-               alt="Struktur Organisasi Laboratorium. Kepala Sekolah Wiwik Yulianti, S.Pd., M.Pd; Kurikulum Denok Siti Fatimah, S.Pd.; Kepala Laboratorium Mei Hajati, S.Pd.; guru mata pelajaran IPA Mei Hajati, S.Pd., Nadya Ayu N, S.Pd., dan Yudo Grahono S, S.Pd.; serta Sarpras Drs. Siti Maftuhatin, M.Pd.">
-        </figure>
-      </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ===== PEMINJAMAN ===== -->
-    <section id="peminjaman" class="section">
-      <div class="wrap">
-        <h2 class="section-title">PEMINJAMAN</h2>
-        <h3 class="section-sub">Daftar Pengajuan Peminjaman Alat</h3>
-        <div class="table-wrap">
-          <div class="table-scroll">
-            <table id="peminjamanTable">
-              <thead>
-                <tr>
-                  <th>Nama</th><th>Institusi/Kelas</th><th>Alat</th><th>Jumlah</th>
-                  <th>Keterangan</th><th>Waktu</th><th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="peminjamanBody"></tbody>
-            </table>
-            <div class="empty-note hidden" id="peminjamanEmpty">Belum ada pengajuan peminjaman.</div>
-          </div>
-        </div>
-        <p class="table-help">Ingin meminjam alat? Pilih alat di bagian <a href="#inventaris">Inventaris</a>, lalu tekan Ajukan Peminjaman.</p>
-      </div>
-    </section>
+<!-- ================= STRUKTUR ORGANISASI ================= -->
+<section id="struktur" class="section alt">
+  <div class="wrap">
+    <h2 class="section-title">STRUKTUR ORGANISASI</h2>
+    <figure class="org-figure">
+      <img src="assets/images/struktur-organisasi-ipa.png" width="1210" height="1022" loading="lazy"
+           alt="Struktur Organisasi Laboratorium IPA">
+    </figure>
+    <figure class="org-figure">
+      <img src="assets/images/struktur-organisasi-lab.png" width="1210" height="1229" loading="lazy"
+           alt="Struktur Organisasi Laboratorium">
+    </figure>
   </div>
+</section>
 
-  <!-- ===== INVENTARIS ===== -->
-  <section id="inventaris" class="band">
-    <div class="band-bg" aria-hidden="true"></div>
-    <div class="wrap">
-      <h2 class="section-title">INVENTARIS</h2>
-      <div class="inv-card-wrap">
-        <div class="inv-tools">
-          <div class="inv-search">
-            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
-            <label for="invSearch" class="sr-only">Cari inventaris</label>
-            <input id="invSearch" type="search" placeholder="Cari inventaris" autocomplete="off">
-          </div>
-          <label for="invLemari" class="sr-only">Filter lemari</label>
-          <select id="invLemari" class="inv-select"><option value="">Semua lemari</option></select>
+<!-- ================= PEMINJAMAN ================= -->
+<section id="peminjaman" class="section">
+  <div class="wrap">
+    <h2 class="section-title">PEMINJAMAN</h2>
+    <h3 class="section-sub">Daftar Pengajuan Peminjaman Alat</h3>
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table id="peminjamanTable">
+          <thead>
+            <tr><th>Nama</th><th>Institusi/Kelas</th><th>Alat</th><th>Jumlah</th><th>Keterangan</th><th>Waktu</th><th>Status</th></tr>
+          </thead>
+          <tbody id="peminjamanBody"></tbody>
+        </table>
+        <div class="empty-note hidden" id="peminjamanEmpty">Belum ada pengajuan peminjaman.</div>
+      </div>
+    </div>
+    <p class="table-help">Ingin meminjam alat? Pilih alat di bagian <a href="#inventaris">Inventaris</a>, lalu tekan Ajukan Peminjaman.</p>
+  </div>
+</section>
+
+<!-- ================= INVENTARIS ================= -->
+<section id="inventaris" class="section alt">
+  <div class="wrap">
+    <h2 class="section-title">INVENTARIS</h2>
+    <div class="inv-card-wrap">
+      <div class="inv-tools">
+        <div class="inv-search">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+          <label for="invSearch" class="sr-only">Cari inventaris</label>
+          <input id="invSearch" type="search" placeholder="Cari inventaris" autocomplete="off">
         </div>
-        <p class="inv-count" id="invCount" aria-live="polite"></p>
-        <div class="inv-panel">
-          <div class="inv-grid" id="invGrid"></div>
-          <div class="inv-more hidden" id="invMoreWrap">
-            <button type="button" class="btn-outline" id="invMore">Tampilkan lebih banyak</button>
-          </div>
+        <label for="invLemari" class="sr-only">Filter lemari</label>
+        <select id="invLemari" class="inv-select"><option value="">Semua lemari</option></select>
+      </div>
+      <p class="inv-count" id="invCount" aria-live="polite"></p>
+      <div class="inv-panel">
+        <div class="inv-grid" id="invGrid"></div>
+        <div class="inv-more hidden" id="invMoreWrap">
+          <button type="button" class="btn-outline" id="invMore">Tampilkan lebih banyak</button>
         </div>
       </div>
     </div>
-  </section>
-
-  <div class="sheet sheet-bottom">
-
-    <!-- ===== SOP & K3 ===== -->
-    <section id="sopk3" class="section">
-      <div class="wrap">
-        <h2 class="section-title">SOP &amp; K3</h2>
-        <h3 class="section-sub">Kesehatan dan Keselamatan Kerja di Laboratorium IPA</h3>
-
-        <div class="k3-panel">
-          <figure class="k3-apd">
-            <img src="assets/images/apd.png" width="394" height="552" loading="lazy"
-                 alt="Gunakan Alat Pelindung Diri: kacamata, sarung tangan, jas lab, celana panjang, dan sepatu tertutup.">
-          </figure>
-          <figure class="k3-awas">
-            <img src="assets/images/pengawasan.png" width="669" height="552" loading="lazy"
-                 alt="Pengawasan: hindari eksperimen tanpa petunjuk pengawas; baca label sebelum eksperimen; ketahui letak peralatan pertolongan pertama dan nomor darurat; dilarang membawa makanan dan minuman serta mencicipi bahan kimia; jangan meninggalkan eksperimen; rapikan ruang kerja dan alat setelah selesai.">
-          </figure>
-        </div>
-
-        <h3 class="limbah-title">Pengolahan Limbah Praktikum</h3>
-        <div class="limbah">
-          <div>
-            <h3>Apa itu limbah praktikum?</h3>
-            <p class="block-gap">Sisa bahan, alat, atau hasil reaksi dari kegiatan praktikum di laboratorium (kimia, biologi, fisika, farmasi, dsb.) yang sudah tidak digunakan dan berpotensi mencemari lingkungan serta membahayakan keselamatan. Tujuan pengelolaan limbah praktikum adalah menjaga keselamatan, mencegah pencemaran lingkungan, dan memastikan kegiatan laboratorium berlangsung tertib serta sesuai standar.</p>
-            <h3>Klasifikasi Limbah</h3>
-            <ol>
-              <li>Limbah kimia berbahaya (B3): asam kuat, basa kuat, pelarut organik, logam berat, reagen toksik.</li>
-              <li>Limbah non-B3: air cucian alat, bahan organik alami, media kultur tidak terkontaminasi.</li>
-              <li>Limbah biologi: kultur mikroba, jaringan, media terkontaminasi.</li>
-              <li>Limbah tajam: jarum, pipet kaca pecah, scalpel.</li>
-            </ol>
-          </div>
-          <div class="lines">
-            <h3>Pengolahan Limbah</h3>
-            <h4>Penanganan limbah kimia</h4>
-            <p>Asam: encerkan → netralkan → simpan.</p>
-            <p>Basa: netralisasi dengan asam lemah.</p>
-            <p>Pelarut organik: simpan di wadah tertutup.</p>
-            <p>Logam berat: dipisahkan dan disimpan terpisah.</p>
-            <h4>Penanganan limbah biologi</h4>
-            <p>Media mikroba diautoklaf 121°C selama 15 menit.</p>
-            <p>Jaringan/biomaterial: disinfeksi lalu dibuang.</p>
-            <p>Terapkan teknik aseptik untuk meminimalkan kontaminasi silang.</p>
-            <h4>Penanganan limbah tajam</h4>
-            <p>Masukkan ke sharps container. Jangan mematahkan atau memanipulasi jarum. Dikelola terpisah dari limbah lain.</p>
-            <h4>Prinsip keselamatan</h4>
-            <p>Gunakan APD (sarung tangan, jas lab, goggles). Jangan mencampur limbah tanpa mengetahui kompatibilitasnya (berpotensi ledakan/gas beracun). Pastikan ventilasi baik.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider">
-
-    <footer class="footer">
-      <dl class="footer-inner">
-        <dt>Alamat lab</dt><dd>Jl. Menganti Wiyung, Kelurahan Wiyung, Kecamatan Wiyung, Kota Surabaya, Jawa Timur</dd>
-        <dt>Jam buka</dt><dd>07.10 – 13.20</dd>
-        <dt>No. WA</dt><dd>Bu Mei (<a href="https://wa.me/6281252283830" rel="noopener">081252283830</a>)</dd>
-        <dt>Email</dt><dd><a href="mailto:labIPA_SMPN34SBY@gmail.com">labIPA_SMPN34SBY@gmail.com</a></dd>
-      </dl>
-    </footer>
   </div>
-</main>
+</section>
+
+<!-- ================= SOP & K3 ================= -->
+<section id="sopk3" class="section">
+  <div class="wrap">
+    <h2 class="section-title">SOP &amp; K3</h2>
+    <h3 class="section-sub">Kesehatan dan Keselamatan Kerja di Laboratorium IPA</h3>
+
+    <div class="k3-panel">
+      <figure class="k3-apd">
+        <img src="assets/images/apd.png" width="394" height="552" loading="lazy" alt="Gunakan Alat Pelindung Diri: kacamata, sarung tangan, jas lab, celana panjang, dan sepatu tertutup.">
+      </figure>
+      <figure class="k3-awas">
+        <img src="assets/images/pengawasan.png" width="669" height="552" loading="lazy" alt="Pengawasan: ikuti petunjuk pengawas, baca label sebelum eksperimen, ketahui letak P3K dan nomor darurat, jangan makan/minum di lab, jangan tinggalkan eksperimen, rapikan ruang kerja setelah selesai.">
+      </figure>
+    </div>
+
+    <h3 class="limbah-title">Pengolahan Limbah Praktikum</h3>
+    <div class="limbah">
+      <div>
+        <h3>Apa itu limbah praktikum?</h3>
+        <p>Sisa bahan, alat, atau hasil reaksi dari kegiatan praktikum di laboratorium (kimia, biologi, fisika, farmasi, dsb.) yang sudah tidak digunakan dan berpotensi mencemari lingkungan serta membahayakan keselamatan. Tujuan pengelolaan limbah praktikum adalah menjaga keselamatan, mencegah pencemaran lingkungan, dan memastikan kegiatan laboratorium berlangsung tertib serta sesuai standar.</p>
+        <h3>Klasifikasi Limbah</h3>
+        <ul>
+          <li>Limbah kimia berbahaya (B3): asam kuat, basa kuat, pelarut organik, logam berat, reagen toksik.</li>
+          <li>Limbah non-B3: air cucian alat, bahan organik alami, media kultur tidak terkontaminasi.</li>
+          <li>Limbah biologi: kultur mikroba, jaringan, media terkontaminasi.</li>
+          <li>Limbah tajam: jarum, pipet kaca pecah, scalpel.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Pengolahan Limbah</h3>
+        <h4>Limbah Kimia</h4>
+        <p>Asam: encerkan → netralkan → simpan. Basa: netralisasi dengan asam lemah. Pelarut organik: simpan di wadah tertutup. Logam berat: dipisahkan dan disimpan terpisah.</p>
+        <h4>Limbah Biologi</h4>
+        <p>Media mikroba diautoklaf 121°C selama 15 menit. Jaringan/biomaterial didisinfeksi lalu dibuang. Terapkan teknik aseptik untuk meminimalkan kontaminasi silang.</p>
+      </div>
+      <div>
+        <h4 style="margin-top:0;">Limbah Tajam</h4>
+        <p>Masukkan ke sharps container. Jangan mematahkan atau memanipulasi jarum. Dikelola terpisah dari limbah lain.</p>
+        <h4>Prinsip Keselamatan</h4>
+        <p>Gunakan APD (sarung tangan, jas lab, goggles). Jangan mencampur limbah tanpa mengetahui kompatibilitasnya (berpotensi ledakan/gas beracun). Pastikan ventilasi baik.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <dl class="footer-inner">
+    <dt>Alamat lab</dt><dd>Jl. Menganti Wiyung, Kelurahan Wiyung, Kecamatan Wiyung, Kota Surabaya, Jawa Timur</dd>
+    <dt>Jam buka</dt><dd>07.10 – 13.20</dd>
+    <dt>No. WA</dt><dd>Bu Mei (<a href="https://wa.me/6281252283830" rel="noopener">081252283830</a>)</dd>
+    <dt>Email</dt><dd><a href="mailto:labIPA_SMPN34SBY@gmail.com">labIPA_SMPN34SBY@gmail.com</a></dd>
+  </dl>
+</footer>
 
 <!-- ================= MODAL DETAIL ALAT ================= -->
 <div class="overlay hidden" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
@@ -738,6 +491,16 @@
     <h3 id="pinjamTitle">Ajukan Peminjaman</h3>
     <p class="sub" id="pinjamItemName">Alat: -</p>
     <form id="pinjamForm">
+      <div class="modal-row">
+        <div class="modal-field">
+          <label for="pinjamNama">Nama Lengkap</label>
+          <input id="pinjamNama" type="text" placeholder="Nama Lengkap" required>
+        </div>
+        <div class="modal-field">
+          <label for="pinjamInstitusi">Institusi/Kelas</label>
+          <input id="pinjamInstitusi" type="text" placeholder="Institusi/Kelas" required>
+        </div>
+      </div>
       <div class="modal-field" id="varianField">
         <label for="pinjamVarian">Ukuran / merk</label>
         <select id="pinjamVarian"></select>
@@ -759,6 +522,3620 @@
   </div>
 </div>
 
+<!-- Data inventaris asli (dari INVENTARIS_ALAT_LAB_IPA.xlsx), disematkan langsung agar
+     halaman tetap berfungsi walau dibuka langsung tanpa server (tanpa fetch file terpisah). -->
+<script type="application/json" id="inventaris-data">
+[
+{
+"t": "Tabel 1. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 1.",
+"l": "Lemari 1",
+"rows": [
+[
+"Rak 1",
+"1",
+"Tabung Reaksi",
+"Kecil",
+"-",
+"80 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"2",
+"Tabung Reaksi",
+"Besar",
+"-",
+"64 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"3",
+"Rak Tabung Reaksi kayu",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"4",
+"Termometer raksa",
+"-",
+"-",
+"9 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"5",
+"Rak tabung reaksi plastik",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"6",
+"Gelas beaker",
+"250 mL",
+"Approx",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"7",
+"Pengaduk Kaca",
+"Besar",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"8",
+"Pengaduk kaca",
+"Kecil",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"9",
+"Gelas Beaker",
+"100 mL",
+"-",
+"24 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"10",
+"Erlenmeyer",
+"250 mL.",
+"Aprox",
+"28 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"11",
+"Erlenmeyer",
+"250 mL",
+"Aprox",
+"25 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"12",
+"Erlenmeyer",
+"100 mL",
+"Aprox",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 5",
+"13",
+"Gelas Beaker",
+"1000 mL",
+"Aprox",
+"7 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 5",
+"14",
+"Gelas Beaker",
+"1000 mL",
+"GG-17",
+"7 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 5",
+"15",
+"Gelas Beaker",
+"600 mL",
+"Pyrex",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 5",
+"16",
+"Gelas Beaker",
+"100 mL",
+"Aprox",
+"8 buah",
+[
+"Bak"
+]
+],
+[
+"Rak 6",
+"17",
+"Gelas Beaker",
+"250 mL",
+"Aprox",
+"13 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 6",
+"18",
+"Gelas Beaker",
+"200 mL",
+"Aprox",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 7",
+"19",
+"Corong kaca",
+"-",
+"-",
+"34 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 7",
+"20",
+"Corong Plastik",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"21",
+"Lumpang Tebal",
+"Besar",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"22",
+"Lumpang Tebal",
+"Sedang",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"23",
+"Lumpang Tebal",
+"Kecil",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"24",
+"Lumpang Tipis",
+"Sedang",
+"-",
+"12 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"25",
+"Alu",
+"Besar",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"26",
+"Alu",
+"Sedang",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"27",
+"Alu",
+"Kecil",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"28",
+"Plat Tetes",
+"-",
+"-",
+"7 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"29",
+"Penjepit Kayu",
+"-",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"30",
+"Pipet Tetes",
+"-",
+"-",
+"-",
+[
+"Rusak (41)"
+]
+],
+[
+"Rak 8",
+"31",
+"Pipet HBG",
+"10 mL",
+"-",
+"11 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 8",
+"32",
+"Pipet HBG",
+"5 mL",
+"-",
+"5 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 2. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 2.",
+"l": "Lemari 2",
+"rows": [
+[
+"Rak 1",
+"1",
+"Kapur tohor",
+"7.000 gr",
+"-",
+"7 plastik",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"2",
+"Kapur papan",
+"-",
+"Trisensa",
+"1 box",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"3",
+"Kapur papan",
+"-",
+"Sarjana",
+"1box",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"4",
+"Kapur papan",
+"-",
+"-",
+"1 Plastik",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"5",
+"Lilin",
+"-",
+"-",
+"1 Plastik",
+[
+"Berkurang"
+]
+],
+[
+"Rak 1",
+"6",
+"Tengkorak",
+"-",
+"-",
+"2 buah",
+[
+"Kurang baik"
+]
+],
+[
+"Rak 1",
+"7",
+"Papan katrol",
+"-",
+"-",
+"1 buah",
+[
+"Kurang baik"
+]
+],
+[
+"Rak 2",
+"8",
+"Kit optika",
+"-",
+"-",
+"4 box",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"9",
+"Kit Mekanika",
+"-",
+"-",
+"1 box",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"10",
+"Kit listrik dan magnet",
+"-",
+"-",
+"1 box",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"11",
+"Kit hidrostatika dan panas",
+"-",
+"-",
+"4 box",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"12",
+"Rel",
+"50 cm",
+"-",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"13",
+"Kaki tiga",
+"-",
+"-",
+"33 buah",
+[
+"Berkarat"
+]
+],
+[
+"Rak 3",
+"14",
+"Kompor besi",
+"-",
+"-",
+"3 buah",
+[
+"Berkarat"
+]
+],
+[
+"Rak 3",
+"15",
+"Beban buatan",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"16",
+"Statif",
+"-",
+"-",
+"15 buah",
+[
+"Baik (6)",
+"Berkarat (11)",
+"Baru (2)"
+]
+],
+[
+"Rak 3",
+"17",
+"Klem",
+"-",
+"-",
+"22 buah",
+[
+"Baik (10)",
+"Berkarat (10)",
+"Baru (2)"
+]
+],
+[
+"Rak 3",
+"18",
+"Kawat kasa",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"19",
+"Batang statif",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"20",
+"Dasar Statif",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"21",
+"Kubus besi",
+"-",
+"-",
+"1 buah",
+[
+"Berkarat"
+]
+],
+[
+"Rak 3",
+"22",
+"Bidang miring",
+"50 cm",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"23",
+"Kabel penghu bung",
+"-",
+"-",
+"68 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"24",
+"Beban",
+"1 kg",
+"-",
+"4 buah",
+[
+"Berkarat"
+]
+],
+[
+"Rak 4",
+"25",
+"Kit Bioplastik",
+"-",
+"-",
+"2 buah",
+[
+"Kurang baik"
+]
+],
+[
+"Rak 4",
+"26",
+"Konduksi logam",
+"-",
+"-",
+"3 buah",
+[
+"Berkarat"
+]
+],
+[
+"Rak 4",
+"27",
+"Musschenbroek",
+"-",
+"-",
+"1 buah",
+[
+"Berkarat"
+]
+],
+[
+"Rak 4",
+"28",
+"Rel",
+"1 meter",
+"-",
+"2 buah",
+[
+"Berkarat"
+]
+]
+]
+},
+{
+"t": "Tabel 3. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 3.",
+"l": "Lemari 3",
+"rows": [
+[
+"Rak 1 (Paling atas)",
+"1",
+"Vacum Extender",
+"Besar",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"2",
+"Vacum Extender",
+"Kecil",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"3",
+"Gelas Ukur",
+"250 mL",
+"Pudak",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"4",
+"Gelas Ukur",
+"250 mL",
+"Herma",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"5",
+"Gelas Ukur",
+"250 mL",
+"Wardana",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"6",
+"Gelas Ukur",
+"250 mL",
+"YZ",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"7",
+"Gelas Ukur",
+"100 mL",
+"Herma",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"8",
+"Gelas Ukur",
+"50 mL",
+"27 MC",
+"9 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"9",
+"Gelas Ukur",
+"25 mL",
+"Pudak",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"10",
+"Gelas Ukur",
+"25 mL",
+"Wardhana",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"11",
+"Gelas Ukur",
+"25 mL",
+"ZL",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"12",
+"Gelas Ukur",
+"25 mL",
+"Aprox",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"13",
+"Gelas Ukur",
+"10 mL",
+"YL",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"14",
+"Gelas Ukur",
+"10 mL",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"15",
+"Pooter",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1 (Paling atas)",
+"16",
+"Bunsen",
+"-",
+"-",
+"9 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"17",
+"Baterai 1D",
+"1.5 V",
+"ABC",
+"91 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"18",
+"Baterai",
+"1.5 V",
+"Panasonic",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"19",
+"Baterai 3AA",
+"1.5 V",
+"ABC",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"20",
+"Baterai 2C",
+"1.5 V",
+"ABC",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"21",
+"Konektor L",
+"-",
+"-",
+"15 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"22",
+"Konektor Y",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"23",
+"Gelas Beker Plastik",
+"1000 mL",
+"Eukaka",
+"9 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"24",
+"Gelas Beker Plastik",
+"500 mL",
+"Pudak",
+"12 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"25",
+"Alat Titrasi/ Set",
+"-",
+"-",
+"1 buah",
+[
+"Kurang Baik"
+]
+],
+[
+"Rak 3",
+"26",
+"Vaseline",
+"500 gr",
+"-",
+"2 botol besar",
+[
+"Tersegel"
+]
+],
+[
+"Rak 3",
+"27",
+"KOH",
+"200 gr",
+"-",
+"2 botol besar",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"28",
+"KNA Tartrat",
+"100 gr",
+"-",
+"2 botol kecil",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"29",
+"Tembaga 2 sulfat",
+"100 gr",
+"-",
+"2 botol kecil",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"30",
+"Aquades",
+"1.000 m L",
+"-",
+"1 botol besar",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"31",
+"Hydrogen proxide 3 %",
+"100 mL",
+"-",
+"3 botol kecil",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"32",
+"Timbal oxide (PBO)",
+"100 gr",
+"-",
+"2 botol kecil",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"33",
+"Biuret",
+"500 mL",
+"-",
+"1 botol besar",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"34",
+"Benedict",
+"500 mL",
+"-",
+"1 botol besar",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"35",
+"Iodium tincture",
+"250 mL",
+"-",
+"1 botol sedang",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"36",
+"Alkohol 70%",
+"1.000 m L",
+"-",
+"4 botol besar",
+[
+"Tersegel (3)",
+"Tidak tersegel (1)"
+]
+],
+[
+"Rak 3",
+"37",
+"Sodium Hydroxide",
+"100 gr",
+"-",
+"1 botol kecil",
+[
+"Berkurang"
+]
+],
+[
+"Rak 3",
+"38",
+"Methylene Blue",
+"1.000 gr",
+"-",
+"1 botol besar",
+[
+"Tersegel"
+]
+],
+[
+"Rak 3",
+"39",
+"Fehling B",
+"1.000 gr",
+"-",
+"2 botol besar",
+[
+"Tersegel"
+]
+],
+[
+"Rak 3",
+"40",
+"Fehling A",
+"1.000 gr",
+"-",
+"2 botol besar",
+[
+"Tersegel"
+]
+],
+[
+"Rak 3",
+"41",
+"Aseton",
+"1.000 gr",
+"-",
+"3 botol besar",
+[
+"Berkurang"
+]
+],
+[
+"Rak 3",
+"42",
+"KMnO4",
+"500 gr",
+"-",
+"1 botol besar",
+[
+"Berkurang"
+]
+],
+[
+"Rak 3",
+"43",
+"Alkohol 70%",
+"5.000 ml",
+"-",
+"1 Jerike n",
+[
+"Tersegel"
+]
+],
+[
+"Rak 3",
+"44",
+"Alkohol 96%",
+"5.000 ml",
+"-",
+"1 Jeriken",
+[
+"Tersegel"
+]
+],
+[
+"Rak 3",
+"45",
+"Spiritus",
+"1.000 ml",
+"-",
+"2 botol besar",
+[
+"Tersegel (1) Berkurang",
+"(1)"
+]
+],
+[
+"Rak 3",
+"46",
+"Betadine",
+"15 ml",
+"-",
+"1 botol",
+[
+"Tersegel"
+]
+],
+[
+"Rak 3",
+"47",
+"Betadine",
+"30 ml",
+"-",
+"2 botol",
+[
+"Berkurang (1",
+")",
+"Tersegel (1)"
+]
+],
+[
+"Rak 3",
+"48",
+"Citrune",
+"-",
+"-",
+"1 plastik",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"49",
+"Asam sulfat",
+"-",
+"-",
+"1 plastik",
+[
+"Penuh"
+]
+],
+[
+"Rak 3",
+"50",
+"Vitamin C",
+"-",
+"Sidomuncu l",
+"1 box",
+[
+"Berkurang"
+]
+],
+[
+"Rak 4",
+"51",
+"Mikroskop Cahaya",
+"-",
+"Wardhana",
+"8 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 4. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 4.",
+"l": "Lemari 4",
+"rows": [
+[
+"",
+"1",
+"Keping beban",
+"25 gr",
+"-",
+"25 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Keping beban",
+"50 gr",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Auxanometer",
+"-",
+"Wardhana",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"4",
+"Sumbat karet",
+"-",
+"-",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"5",
+"Kaca pembesar geologi",
+"10x",
+"-",
+"62 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"6",
+"Lempeng seng",
+"-",
+"-",
+"13 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"7",
+"Lempeng besi",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"8",
+"Lempeng tembaga",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"9",
+"Trolley",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"10",
+"Klip",
+"-",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"11",
+"Lamp holder",
+"-",
+"Elindo",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"12",
+"Hydrometer",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"13",
+"Thermometer ruangan",
+"-",
+"Brannan",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"14",
+"Elektroskop",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"16",
+"Busur",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"17",
+"Kompas",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"18",
+"Vector",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"19",
+"Balok beban",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"20",
+"Neraca pegas",
+"500 gr",
+"Owl",
+"3 buah",
+[
+"Baik (2)",
+"Rusak (1)"
+]
+],
+[
+"",
+"21",
+"Neraca pegas",
+"25 kg",
+"Wardhana",
+"3 buah",
+[
+"Baik (2)",
+"Rusak (1)"
+]
+],
+[
+"",
+"22",
+"Neraca pegas",
+"500 gr",
+"Eus",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"23",
+"Dissecting board",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"24",
+"Lempengan besi",
+"-",
+"-",
+"88 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"25",
+"Pegas",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"26",
+"Neraca pegas",
+"1000 gr",
+"Owl",
+"3 buah",
+[
+"Baik (2)",
+"Rusak (1)"
+]
+],
+[
+"",
+"27",
+"Neraca pegas",
+"10 kg",
+"Wardhana",
+"5 buah",
+[
+"Baik (3)",
+"Rusak (2)"
+]
+],
+[
+"",
+"28",
+"Tempat lampu besar",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"29",
+"Klem pipa",
+"-",
+"-",
+"136 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"30",
+"Neraca 4 lengan",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"31",
+"Barometer",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"32",
+"Bandul pemberat",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"33",
+"Elektroda tembaga",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"34",
+"Elektroda seng",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"35",
+"Elektroda besi",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"36",
+"Elektroda timbal",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 5. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 5.",
+"l": "Lemari 5",
+"rows": [
+[
+"",
+"1",
+"Bohlam lampu",
+"-",
+"-",
+"148 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Bohlam lampu panjang",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Kertas ticker timer",
+"-",
+"-",
+"19 roll",
+[
+"Baik"
+]
+],
+[
+"",
+"4",
+"Plotting compass",
+"-",
+"PT Mega Eltra",
+"12 pack",
+[
+"Baik"
+]
+],
+[
+"",
+"5",
+"Resistor",
+"47 Ω",
+"-",
+"9 buah",
+[
+"Baik (8)",
+"Rusak (1)"
+]
+],
+[
+"",
+"6",
+"Resistor",
+"470 Ω",
+"-",
+"9 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"7",
+"Resistor",
+"56 Ω",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"8",
+"Pemegang lampu",
+"-",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"9",
+"Resistor",
+"100 Ω",
+"-",
+"12 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"10",
+"Resistor switch",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"11",
+"Resistor led",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"12",
+"Toggle switch",
+"-",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"13",
+"Basic meter",
+"-",
+"Wardhan a",
+"11 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"14",
+"Galvanometer",
+"-",
+"-",
+"9 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"15",
+"Microampere",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"16",
+"Voltampere",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"17",
+"Amperemeter",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"18",
+"Multimeter",
+"-",
+"Sunwa",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"19",
+"Papan rangkaian",
+"-",
+"-",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"20",
+"Konektor",
+"-",
+"-",
+"58 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"21",
+"Adaptor",
+"-",
+"-",
+"20 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"22",
+"Kumparan",
+"-",
+"-",
+"3 buah",
+[
+"Baik (2)",
+"Rusak (1)"
+]
+],
+[
+"",
+"23",
+"Power supply",
+"-",
+"Aflah",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"24",
+"Power supply",
+"-",
+"Pudak sci entific",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"25",
+"Spark plug",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"26",
+"Banana plug",
+"-",
+"-",
+"20 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"27",
+"Clip plug",
+"-",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"28",
+"Klem statif",
+"-",
+"-",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"29",
+"Tuas",
+"-",
+"-",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"30",
+"Kabel konektor",
+"-",
+"-",
+"57 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"31",
+"Kabel tester",
+"-",
+"-",
+"11 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"32",
+"Kawat tembaga",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 6. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 6.",
+"l": "Lemari 6",
+"rows": [
+[
+"",
+"1",
+"Power supply",
+"-",
+"Elindo",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Serbuk besi",
+"-",
+"-",
+"2 botol",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Ticker timer",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 7. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 6.",
+"l": "Lemari 6",
+"rows": [
+[
+"Rak 2",
+"1",
+"Cermin lingkaran",
+"-",
+"-",
+"17 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"2",
+"Bejana berhubungan",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"3",
+"Cermin datar",
+"-",
+"-",
+"26 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"4",
+"Coil 300 lilitan",
+"-",
+"ps",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"5",
+"Coil 1200 lilitan",
+"-",
+"Ps",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"6",
+"Faraday’s coil",
+"-",
+"Pudak",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"7",
+"Galvanometer",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"8",
+"Kompas",
+"-",
+"Pudak",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"9",
+"Multimeter analog",
+"-",
+"Sanwa",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"10",
+"Lensa cekung kecil",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"11",
+"Lup besar",
+"75 mm",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"12",
+"Cermin datar",
+"100 x 25",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"13",
+"Lup kecil",
+"50 mm",
+"-",
+"11 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"14",
+"Multiplier",
+"-",
+"Elindo",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"15",
+"Prisma kecil",
+"-",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"16",
+"Prisma besar",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"17",
+"Plan paralel",
+"-",
+"-",
+"11 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"18",
+"Voltmeter",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"19",
+"Lensa cembung kecil",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"20",
+"Penjepit",
+"-",
+"-",
+"15 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"21",
+"Kaca Pembesar",
+"-",
+"Magnifyin g Glass",
+"1 box",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"22",
+"Lensa Cembung Besar",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"23",
+"Lensa Cembung Sedang",
+"-",
+"-",
+"30 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 2",
+"24",
+"Lensa cekumg sedang",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 8. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 6.",
+"l": "Lemari 6",
+"rows": [
+[
+"Rak 1",
+"1",
+"Cermin datar lipat",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"2",
+"Dynamometer",
+"-",
+"-",
+"13 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"3",
+"Garputala",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"4",
+"Jangka sorong",
+"-",
+"Tricle",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"5",
+"Katrol kecil",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"6",
+"Micrometer",
+"-",
+"Tricle",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"7",
+"Pipet tetes",
+"-",
+"Wardhana",
+"38 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"8",
+"Stetoskop",
+"-",
+"Wardhana",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"9",
+"spet",
+"-",
+"Wardhana",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"10",
+"Tali putih",
+"-",
+"-",
+"8 rol",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"11",
+"Slinki",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"12",
+"Tensimeter analog",
+"-",
+"Wardhana",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"13",
+"Busur",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 1",
+"14",
+"Pegas",
+"-",
+"-",
+"1 box",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 9. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 6.",
+"l": "Lemari 6",
+"rows": [
+[
+"",
+"1",
+"Gelas ukur",
+"1000 mL",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Neraca ohaus 4 lengan",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Penggaris aluminium",
+"-",
+"-",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"4",
+"Penggaris plastik",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"5",
+"Coll Sediment",
+"-",
+"Pudak",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"6",
+"Coll of igueous rock",
+"-",
+"Pudak",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"7",
+"Mikroskop Cahaya",
+"-",
+"-",
+"1 buah",
+[
+"Rusak"
+]
+]
+]
+},
+{
+"t": "Tabel 10. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 6.",
+"l": "Lemari 6",
+"rows": [
+[
+"Rak 3",
+"1",
+"Batang karet",
+"-",
+"-",
+"13 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"2",
+"Batang plastik",
+"-",
+"-",
+"19 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"3",
+"Batang kaca",
+"-",
+"-",
+"21 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"4",
+"Batang pengaduk",
+"-",
+"-",
+"13 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"5",
+"Batang plastik pipih",
+"-",
+"-",
+"9 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"6",
+"Bangun- bangun",
+"-",
+"-",
+"1 set",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"7",
+"Gelas kimia",
+"1000 mL",
+"Boro",
+"3 buah",
+[
+"baik"
+]
+],
+[
+"Rak 3",
+"8",
+"Gelas kimia",
+"200 mL",
+"Approx",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"9",
+"Penghambat",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"10",
+"Gelas erlenmeyer",
+"100 mL",
+"Approx",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"11",
+"Gelas ukur",
+"50 mL",
+"Yc",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"12",
+"Gelas ukur",
+"25 mL",
+"Zl",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"13",
+"Gelas ukur",
+"10 mL",
+"Pyrex",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"14",
+"Sumber karet",
+"-",
+"-",
+"18 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"15",
+"Kelereng",
+"-",
+"-",
+"41 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"16",
+"Kubus materi",
+"-",
+"Pudak",
+"5 pack",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"17",
+"Magnet batang panjang",
+"-",
+"-",
+"7 set",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"18",
+"Magnet batang pendek",
+"-",
+"-",
+"3 set",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"19",
+"Magnet U",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"21",
+"Serbuk besi (tutup hijau)",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"22",
+"Serbuk besi (tutup kuning)",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"23",
+"Thermometer alkohol",
+"-",
+"Brannan",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"24",
+"Thermometer alkohol",
+"-",
+"Pudak",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"25",
+"Thermometer alkoho l",
+"-",
+"Wardhana",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"26",
+"Thermometer alkoho l",
+"-",
+"-",
+"7 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"27",
+"Thermometer Hg",
+"-",
+"brannan",
+"4 buah",
+[
+"Kurang Baik"
+]
+],
+[
+"Rak 3",
+"28",
+"Thermometer tanpa s kala",
+"-",
+"Pudak",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"29",
+"Thermometer glass",
+"-",
+"Pudak",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 3",
+"30",
+"Bandul sederhana",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 11. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 6",
+"l": "Lemari 6",
+"rows": [
+[
+"Rak 4",
+"1",
+"Elektroskop besar",
+"-",
+"-",
+"2 set",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"2",
+"Elektroskop kecil",
+"-",
+"-",
+"1 set",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"3",
+"Kain wol dan sutera",
+"-",
+"-",
+"3 set",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"4",
+"Katrol",
+"Diameter 100",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"5",
+"Kawat konstanta",
+"-",
+"Pudak",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"6",
+"Kawat konstanta",
+"-",
+"Wardhana",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"7",
+"Kawat nikrom",
+"-",
+"Pudak",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"8",
+"Kawat nikrom",
+"-",
+"Wardhana",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"9",
+"Kawat sikring",
+"-",
+"Pudak",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"10",
+"Kawat sikring",
+"-",
+"Wardhana",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"11",
+"Kawat tembaga",
+"-",
+"Pudak",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"12",
+"Kawat tembaga",
+"-",
+"Wardhana",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"13",
+"Kompas kecil",
+"-",
+"-",
+"42 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"14",
+"Kumparan",
+"250 lilitan",
+"Wardhana",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"15",
+"Kumparan",
+"250 lilitan",
+"Pudak",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"16",
+"Kumparan",
+"500 lilitan",
+"Wardhana",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"17",
+"Kumparan",
+"1000 lilitan",
+"Pudak",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"18",
+"Kumparan",
+"1000 lillitan",
+"Wardhana",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"19",
+"Kawat nilon besar",
+"-",
+"-",
+"1 set",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"20",
+"Kawat nilon kecil",
+"-",
+"-",
+"1 set",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"21",
+"Kawat copper",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"22",
+"Kumparan",
+"200 lilitan",
+"-",
+"1 buah",
+[
+"Baik"
+]
+],
+[
+"Rak 4",
+"23",
+"Inti besi I dan U",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 12. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 7.",
+"l": "Lemari 7",
+"rows": [
+[
+"",
+"1",
+"Model Jantung",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Model Mata",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Model Telinga",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 13. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 8.",
+"l": "Lemari 8",
+"rows": [
+[
+"",
+"1",
+"Kit Pemeliharaan Mikroskop",
+"-",
+"Wardhana",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Stopwatch",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Indikator Universal",
+"-",
+"-",
+"5 pack",
+[
+"Baik"
+]
+],
+[
+"",
+"4",
+"Kertas Saring",
+"-",
+"-",
+"3 pack",
+[
+"Baik"
+]
+],
+[
+"",
+"5",
+"Kertas Lakmus Merah",
+"-",
+"-",
+"11 pack",
+[
+"Baik"
+]
+],
+[
+"",
+"6",
+"Kertas Lakmus Biru",
+"-",
+"-",
+"15 pack",
+[
+"Baik"
+]
+],
+[
+"",
+"7",
+"Molecular Models",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"8",
+"Cawan Petri",
+"-",
+"-",
+"22 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"9",
+"Kit Pembersih Lensa",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 14. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari.",
+"l": "Lemari (Tabel 14)",
+"rows": [
+[
+"",
+"1",
+"Respirometer",
+"-",
+"-",
+"8 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Alat Peraga Bryophyta",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Alat Peraga Pteridophyta",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"4",
+"Alat Peraga Bioplastik Pteridophyta",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"5",
+"Preparat",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"6",
+"Plastik Bening",
+"-",
+"-",
+"15 pack",
+[
+"Baik"
+]
+],
+[
+"",
+"7",
+"Kaca Arloji",
+"-",
+"-",
+"11 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"8",
+"Mesh Filter Disc",
+"-",
+"-",
+"4 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"9",
+"Kaca Benda",
+"-",
+"-",
+"11 pack",
+[
+"Baik"
+]
+],
+[
+"",
+"10",
+"Kaca Penutup",
+"-",
+"-",
+"16 pack",
+[
+"Baik"
+]
+],
+[
+"",
+"11",
+"Osmometer",
+"-",
+"-",
+"16 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"12",
+"Termometer Badan",
+"-",
+"-",
+"9 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"13",
+"Tabung Berskala",
+"-",
+"-",
+"10 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 15. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 9",
+"l": "Lemari 9",
+"rows": [
+[
+"",
+"1",
+"Alat Bedah",
+"-",
+"-",
+"9 set",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Kotak Genetika",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Lensa Mikroskop",
+"-",
+"-",
+"11 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"4",
+"Kertas Osmosis",
+"-",
+"-",
+"50 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"5",
+"Kartu Tumbuhan",
+"-",
+"-",
+"6 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"6",
+"Kartu Hewan",
+"-",
+"-",
+"5 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"7",
+"Kotak Preparat Kering",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"8",
+"Kit Gymnospermae",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"9",
+"Kit Bryophyta",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"10",
+"Kit Pteridophyta",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"11",
+"Kuadrat Lipat",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"12",
+"Kancing Genetika",
+"-",
+"-",
+"2 buah",
+[
+"Baik"
+]
+]
+]
+},
+{
+"t": "Tabel 16. Daftar Inventaris Alat dan Bahan Laboratorium SMP Negeri 34 Surabaya Lemari 16.",
+"l": "Lemari 16",
+"rows": [
+[
+"",
+"1",
+"Mikroskop Cahaya",
+"-",
+"-",
+"10 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"2",
+"Mikroskop Otereo",
+"-",
+"-",
+"3 buah",
+[
+"Baik"
+]
+],
+[
+"",
+"3",
+"Mikroskop Listrik",
+"-",
+"-",
+"1 buah",
+[
+"Baik"
+]
+]
+]
+}
+]
+</script>
 
 <script>
 (function(){
@@ -766,12 +4143,7 @@
   const $ = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-  /* ================= STATE ================= */
-  let visitor = null;
-  let selectedGroup = null;
-  let lastFocus = null;
-
-  /* ================= DB (peminjaman & log pengunjung) ================= */
+  /* ================= DB (peminjaman, opsional) ================= */
   let dbPromise = null;
   function getDb(){
     if(!dbPromise){
@@ -780,112 +4152,30 @@
     return dbPromise;
   }
 
-  /* ================= GATE ================= */
-  const siteEl = $('#site');
-  const formWrap = $('#gateFormWrap');
-  const welcomeEl = $('#gateWelcome');
-  const hintEl = $('#gateHint');
-
-  function showSite(v, opts){
-    visitor = v;
-    siteEl.classList.remove('hidden');
-    formWrap.classList.add('hidden');
-    welcomeEl.classList.remove('hidden');
-    $('#welcomeNama').textContent = v.nama;
-    $('#welcomeInst').textContent = v.institusi;
-    if(opts && opts.scroll){
-      requestAnimationFrame(()=> $('#home').scrollIntoView({behavior:'smooth', block:'start'}));
-    }
-  }
-  function resetVisitor(){
-    visitor = null;
-    try{ sessionStorage.removeItem('lab_visitor'); }catch(e){}
-    siteEl.classList.add('hidden');
-    welcomeEl.classList.add('hidden');
-    formWrap.classList.remove('hidden');
-    $('#gateForm').reset();
-    window.scrollTo({top:0});
-    $('#gateNama').focus();
-  }
-
-  try{
-    const saved = sessionStorage.getItem('lab_visitor');
-    if(saved){ const v = JSON.parse(saved); if(v && v.nama && v.institusi) showSite(v); }
-  }catch(e){}
-
-  $('#gateForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const nama = $('#gateNama').value.trim();
-    const institusi = $('#gateInstitusi').value.trim();
-    if(!nama || !institusi){ hintEl.textContent = 'Isi nama dan institusi/kelas terlebih dahulu.'; return; }
-    hintEl.textContent = '';
-    const v = {nama, institusi};
-    try{ sessionStorage.setItem('lab_visitor', JSON.stringify(v)); }catch(err){}
-    showSite(v, {scroll:true});
-    logPengunjung(v);
-  });
-  $('#gateReset').addEventListener('click', resetVisitor);
-
-  async function logPengunjung(v){
-    try{
-      const db = await getDb();
-      if(!db) return;
-      await db.collection('pengunjung').add({nama:v.nama, institusi:v.institusi, waktu:Date.now()});
-    }catch(e){ /* diam */ }
-  }
-
   /* ================= NAV ================= */
-  const navbar = $('#navbar');
   const navToggle = $('#navToggle');
   const navLinks = $('#navLinks');
-  const navAnchors = $$('.nav-links [data-nav]');
-
   function setNavOpen(open){
     navLinks.classList.toggle('open', open);
     navToggle.setAttribute('aria-expanded', String(open));
     navToggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
   }
   navToggle.addEventListener('click', ()=> setNavOpen(!navLinks.classList.contains('open')));
+  $$('[data-nav]').forEach(a=> a.addEventListener('click', ()=> setNavOpen(false)));
 
-  $$('[data-nav]').forEach(a=>{
-    a.addEventListener('click', (e)=>{
-      setNavOpen(false);
-      if(!visitor && a.dataset.nav !== 'top'){
-        e.preventDefault();
-        window.scrollTo({top:0, behavior:'smooth'});
-        hintEl.textContent = 'Isi nama dan institusi/kelas untuk membuka halaman ini.';
-        $('#gateNama').focus({preventScroll:true});
-      }
-    });
-  });
-
-  window.addEventListener('scroll', ()=> navbar.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-
-  const trackIds = ['top','home','struktur','peminjaman','inventaris','sopk3'];
+  const navAnchors = $$('.nav-links [data-nav]');
+  const trackIds = ['home','struktur','peminjaman','inventaris','sopk3'];
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(en=>{
       if(!en.isIntersecting) return;
-      const key = en.target.id === 'home' ? 'top' : en.target.id;
-      navAnchors.forEach(a=> a.classList.toggle('active', a.dataset.nav === key));
+      navAnchors.forEach(a=> a.classList.toggle('active', a.dataset.nav === en.target.id));
     });
-  }, {rootMargin:'-35% 0px -60% 0px'});
-  trackIds.forEach(id=>{ const el = document.getElementById(id); if(el) io.observe(el); });
+  }, {rootMargin:'-35% 0px -55% 0px'});
+  trackIds.forEach(id=>{ const el2 = document.getElementById(id); if(el2) io.observe(el2); });
 
-  /* ================= DATA INVENTARIS ================= */
-  async function initInventory(){
-    let TABLES = [];
-    const ROWS = [];
-    try{
-      const response = await fetch('./data/inventaris.json', {cache:'no-store'});
-      if(!response.ok) throw new Error('HTTP ' + response.status);
-      TABLES = await response.json();
-    }catch(err){
-      console.error('Gagal memuat data/inventaris.json:', err);
-      $('#invGrid').replaceChildren(el('div','inv-empty','Data inventaris gagal dimuat. Pastikan Live Server dijalankan dari folder utama website.'));
-      $('#invCount').textContent = 'Data inventaris tidak tersedia';
-      return;
-    }
+  /* ================= DATA INVENTARIS (embedded, bukan fetch) ================= */
+  const TABLES = JSON.parse($('#inventaris-data').textContent);
+  const ROWS = [];
   TABLES.forEach(t=>{
     t.rows.forEach(r=>{
       ROWS.push({tabel:t.t, lemari:t.l, rak:r[0], no:r[1], nama:r[2], ukuran:r[3], merk:r[4], jumlah:r[5], ket:r[6]});
@@ -945,7 +4235,7 @@
     return '🧰';
   }
 
-  /* ================= LEMARI FILTER ================= */
+  /* ================= FILTER LEMARI ================= */
   const lemariSel = $('#invLemari');
   const lemariList = [];
   TABLES.forEach(t=>{ if(!lemariList.includes(t.l)) lemariList.push(t.l); });
@@ -1025,10 +4315,10 @@
   lemariSel.addEventListener('change', applyFilter);
   $('#invMore').addEventListener('click', renderMore);
   applyFilter();
-  }
-  initInventory();
 
   /* ================= OVERLAYS ================= */
+  let lastFocus = null;
+  let selectedGroup = null;
   function openOverlay(o){
     lastFocus = document.activeElement;
     o.classList.remove('hidden');
@@ -1100,11 +4390,6 @@
   }
 
   function openBorrow(g){
-    if(!visitor){
-      hintEl.textContent = 'Isi nama dan institusi/kelas terlebih dahulu untuk mengajukan peminjaman.';
-      window.scrollTo({top:0, behavior:'smooth'});
-      return;
-    }
     selectedGroup = g;
     $('#pinjamItemName').textContent = 'Alat: ' + g.nama;
     varianSel.replaceChildren();
@@ -1114,6 +4399,8 @@
       varianSel.appendChild(o);
     });
     $('#varianField').classList.toggle('hidden', g.rows.length < 2);
+    $('#pinjamNama').value = '';
+    $('#pinjamInstitusi').value = '';
     $('#pinjamJumlah').value = 1;
     $('#pinjamKet').value = '';
     pinjamMsg.textContent = '';
@@ -1130,7 +4417,14 @@
 
   pinjamForm.addEventListener('submit', async function(e){
     e.preventDefault();
-    if(!selectedGroup || !visitor) return;
+    if(!selectedGroup) return;
+    const nama = $('#pinjamNama').value.trim();
+    const institusi = $('#pinjamInstitusi').value.trim();
+    if(!nama || !institusi){
+      pinjamMsg.textContent = 'Isi nama dan institusi/kelas terlebih dahulu.';
+      pinjamMsg.className = 'form-msg err';
+      return;
+    }
     const r = selectedGroup.rows[parseInt(varianSel.value || '0', 10)] || selectedGroup.rows[0];
     const jumlah = parseInt($('#pinjamJumlah').value, 10) || 1;
     const keterangan = $('#pinjamKet').value.trim();
@@ -1145,30 +4439,26 @@
     btn.disabled = true;
     pinjamMsg.className = 'form-msg';
     pinjamMsg.textContent = 'Mengirim pengajuan...';
+    const request = {
+      nama, institusi, item: itemLabel, jumlah, keterangan,
+      waktu: Date.now(), status: 'Menunggu'
+    };
     try{
-      const request = {
-        nama: visitor.nama, institusi: visitor.institusi,
-        item: itemLabel, jumlah, keterangan,
-        waktu: Date.now(), status: 'Menunggu'
-      };
       const db = await getDb();
       if(db){
         await db.collection('peminjaman').add(request);
       }else{
-        // Fallback agar fitur tetap bisa dipakai di Live Server tanpa database.
         const current = readLocalPeminjaman();
         current.unshift(request);
-        saveLocalPeminjaman(current.slice(0,100));
-        renderPeminjaman(current.slice(0,100));
+        saveLocalPeminjaman(current.slice(0,200));
+        renderPeminjaman(current.slice(0,200));
       }
       pinjamMsg.textContent = 'Pengajuan berhasil dikirim. Data sudah masuk ke daftar Peminjaman.';
       pinjamMsg.className = 'form-msg ok';
       setTimeout(()=>{
         closeOverlay(pinjamOverlay);
-        const peminjamanSection = document.getElementById('peminjaman');
-        if(peminjamanSection){
-          peminjamanSection.scrollIntoView({behavior:'smooth', block:'start'});
-        }
+        const sec = document.getElementById('peminjaman');
+        if(sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
       }, 700);
     }catch(err){
       pinjamMsg.textContent = 'Gagal mengirim pengajuan. Coba lagi.';
@@ -1210,7 +4500,6 @@
   (async function initPeminjamanFeed(){
     const localDocs = readLocalPeminjaman();
     renderPeminjaman(localDocs);
-
     const db = await getDb();
     if(!db) return;
     try{
