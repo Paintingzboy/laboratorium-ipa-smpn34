@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Laboratorium IPA SMPN 34 Surabaya</title>
+<link rel="icon" type="image/png" href="assets/images/Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -181,6 +182,9 @@
   .table-help a{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
   .loan-admin{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px;}
   .loan-connection{margin:0;color:var(--muted);font-size:13px;font-weight:600;}
+  .loan-feedback{margin:-6px 0 12px;font-size:13px;font-weight:600;}
+  .loan-feedback.ok{color:var(--ok-fg);}
+  .loan-feedback.err{color:var(--bad-fg);}
   .assistant-login{margin:12px 0 18px;padding:16px;background:var(--panel);border-radius:10px;}
   .assistant-login-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:10px;}
   .assistant-login input{min-width:0;border:2px solid transparent;border-radius:10px;background:var(--field);padding:11px 13px;color:var(--text);}
@@ -191,6 +195,7 @@
   .loan-action{border:0;border-radius:8px;padding:7px 10px;font-size:12px;font-weight:700;cursor:pointer;}
   .loan-action.approve{background:var(--ok-bg);color:var(--ok-fg);}
   .loan-action.reject{background:var(--bad-bg);color:var(--bad-fg);}
+  .loan-action.delete{background:var(--bad-bg);color:var(--bad-fg);}
   .loan-action:disabled{opacity:.6;cursor:wait;}
   @media (max-width:700px){.assistant-login-fields{grid-template-columns:1fr;}.loan-admin{align-items:flex-start;flex-direction:column;}}
 
@@ -385,6 +390,7 @@
         <button type="button" class="btn-outline hidden" id="assistantLogout">Keluar dari akun asisten</button>
       </div>
     </div>
+    <p class="loan-feedback hidden" id="loanFeedback" role="status"></p>
     <form class="assistant-login hidden" id="assistantLoginForm">
       <div class="assistant-login-fields">
         <input id="assistantEmail" type="email" autocomplete="username" placeholder="Email asisten" aria-label="Email asisten" required>
@@ -4504,18 +4510,26 @@
       tr.appendChild(st);
       const actions = document.createElement('td');
       actions.className = isAssistant ? '' : 'hidden';
+      const actionGroup = el('div', 'loan-actions');
       if(isAssistant && (d.status || 'Menunggu') === 'Menunggu'){
-        const group = el('div', 'loan-actions');
         [['Disetujui','ACC','approve'], ['Ditolak','Tolak','reject']].forEach(([status,label,kind])=>{
           const button = el('button', 'loan-action ' + kind, label);
           button.type = 'button';
           button.dataset.loanId = d.id;
           button.dataset.loanStatus = status;
-          group.appendChild(button);
+          actionGroup.appendChild(button);
         });
-        actions.appendChild(group);
-      }else if(isAssistant){
-        actions.textContent = d.diverifikasi_pada ? new Date(d.diverifikasi_pada).toLocaleString('id-ID', {dateStyle:'medium', timeStyle:'short'}) : 'Selesai';
+      }
+      if(isAssistant){
+        const deleteButton = el('button', 'loan-action delete', 'Hapus');
+        deleteButton.type = 'button';
+        deleteButton.dataset.loanId = d.id;
+        deleteButton.dataset.loanDelete = 'true';
+        actionGroup.appendChild(deleteButton);
+        actions.appendChild(actionGroup);
+        if((d.status || 'Menunggu') !== 'Menunggu' && d.diverifikasi_pada){
+          actions.appendChild(el('small', null, new Date(d.diverifikasi_pada).toLocaleString('id-ID', {dateStyle:'medium', timeStyle:'short'})));
+        }
       }
       tr.appendChild(actions);
       pBody.appendChild(tr);
@@ -4590,7 +4604,30 @@
   pBody.addEventListener('click', async e=>{
     const button = e.target.closest('[data-loan-id]');
     if(!button || !assistantUser || !supabaseClient) return;
+    if(button.dataset.loanDelete === 'true' && !window.confirm('Hapus pengajuan peminjaman ini secara permanen?')) return;
     button.disabled = true;
+    if(button.dataset.loanDelete === 'true'){
+      let result;
+      try{
+        result = await supabaseClient.from('peminjaman').delete().eq('id', button.dataset.loanId).select('id');
+      }catch(error){
+        result = {error};
+      }
+      await refreshPeminjaman();
+      const feedback = $('#loanFeedback');
+      feedback.classList.remove('hidden', 'ok', 'err');
+      if(result.error){
+        feedback.textContent = 'Gagal menghapus pengajuan: ' + result.error.message + ' Pastikan skema SQL terbaru sudah dijalankan.';
+        feedback.classList.add('err');
+      }else if(!result.data?.length){
+        feedback.textContent = 'Tidak ada data yang terhapus. Jalankan ulang data/supabase-schema.sql di SQL Editor Supabase untuk memberi izin hapus kepada asisten.';
+        feedback.classList.add('err');
+      }else{
+        feedback.textContent = 'Pengajuan berhasil dihapus dari daftar bersama.';
+        feedback.classList.add('ok');
+      }
+      return;
+    }
     const {error} = await supabaseClient.from('peminjaman').update({
       status: button.dataset.loanStatus,
       diverifikasi_oleh: assistantUser.id,
