@@ -16,6 +16,7 @@ revoke all on table public.peminjaman from anon, authenticated;
 grant insert on table public.peminjaman to anon, authenticated;
 grant select on table public.peminjaman to authenticated;
 grant update (status, diverifikasi_oleh, diverifikasi_pada) on table public.peminjaman to authenticated;
+grant delete on table public.peminjaman to authenticated;
 
 drop policy if exists "Public can submit pending loans" on public.peminjaman;
 create policy "Public can submit pending loans"
@@ -41,6 +42,11 @@ create policy "Assistants can verify loans"
     and diverifikasi_oleh = auth.uid()
     and diverifikasi_pada is not null
   );
+
+drop policy if exists "Assistants can delete loans" on public.peminjaman;
+create policy "Assistants can delete loans"
+  on public.peminjaman for delete to authenticated
+  using ((auth.jwt() -> 'app_metadata' ->> 'lab_role') = 'assistant');
 
 -- This view intentionally excludes borrower names, class, and free-text notes.
 drop view if exists public.peminjaman_publik;
