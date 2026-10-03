@@ -87,10 +87,7 @@
     box-shadow:0 8px 30px rgba(4,24,48,.18);
   }
   .brand{display:flex;align-items:center;gap:10px;color:#fff;line-height:1.15;white-space:nowrap;}
-  .brand-badge{
-    width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.18);
-    display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 auto;
-  }
+  .brand-logo{display:block;width:40px;height:40px;object-fit:contain;flex:0 0 auto;}
   .brand strong{display:block;font-size:17px;font-weight:700;letter-spacing:.3px;}
   .brand span{display:block;font-size:10.5px;font-weight:500;opacity:.9;}
   .nav-links{display:flex;align-items:center;gap:4px;}
@@ -151,15 +148,15 @@
     display:flex;gap:24px;flex-wrap:wrap;align-items:stretch;
   }
   .profile-photo{
-    flex:1 1 220px;min-height:280px;border-radius:12px;background:var(--card);
-    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
-    color:var(--muted);font-weight:600;font-size:13.5px;text-align:center;padding:14px;
+    flex:1 1 220px;width:100%;min-height:280px;border-radius:12px;
+    object-fit:cover;object-position:center;
   }
   .profile-text{flex:1.6 1 320px;}
   .profile-text h3{margin:0 0 14px;font-size:22px;font-weight:700;color:var(--title);}
   .profile-text p{margin:0 0 14px;font-size:15px;line-height:1.75;color:var(--text-soft);text-align:justify;}
   .profile-text p:last-child{margin-bottom:0;}
   .profile-side{flex:1 1 220px;display:flex;flex-direction:column;gap:16px;}
+  .profile-side-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;}
   .info-card{flex:1;background:var(--panel);border-radius:12px;padding:20px 22px;}
   .info-card h4{margin:0 0 12px;font-size:15px;font-weight:700;color:var(--title);}
   .info-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:13.5px;}
@@ -182,6 +179,20 @@
   .empty-note{padding:36px 20px;text-align:center;color:var(--muted);font-weight:600;font-size:14px;}
   .table-help{margin:16px 4px 0;font-size:13.5px;color:var(--text-soft);text-align:center;}
   .table-help a{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+  .loan-admin{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px;}
+  .loan-connection{margin:0;color:var(--muted);font-size:13px;font-weight:600;}
+  .assistant-login{margin:12px 0 18px;padding:16px;background:var(--panel);border-radius:10px;}
+  .assistant-login-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:10px;}
+  .assistant-login input{min-width:0;border:2px solid transparent;border-radius:10px;background:var(--field);padding:11px 13px;color:var(--text);}
+  .assistant-login input:focus{outline:none;border-color:var(--accent);}
+  .assistant-login .btn-primary{border:0;border-radius:10px;padding:10px 18px;font-weight:700;cursor:pointer;}
+  .assistant-login-message{margin:10px 0 0;color:var(--bad-fg);font-size:13px;font-weight:600;}
+  .loan-actions{display:flex;gap:8px;flex-wrap:wrap;}
+  .loan-action{border:0;border-radius:8px;padding:7px 10px;font-size:12px;font-weight:700;cursor:pointer;}
+  .loan-action.approve{background:var(--ok-bg);color:var(--ok-fg);}
+  .loan-action.reject{background:var(--bad-bg);color:var(--bad-fg);}
+  .loan-action:disabled{opacity:.6;cursor:wait;}
+  @media (max-width:700px){.assistant-login-fields{grid-template-columns:1fr;}.loan-admin{align-items:flex-start;flex-direction:column;}}
 
   /* ---------- Inventaris ---------- */
   .inv-card-wrap{background:var(--card);border-radius:var(--radius);padding:24px;}
@@ -299,7 +310,7 @@
 <header class="nav-shell">
   <nav class="navbar" aria-label="Navigasi utama">
     <div class="brand">
-      <div class="brand-badge">🔬</div>
+      <img class="brand-logo" src="assets/images/Logo.png" alt="Logo SMP Negeri 34 Surabaya">
       <div>
         <strong>LABORATORIUM</strong>
         <span>LABORATORIUM IPA SMPN 34</span>
@@ -330,13 +341,14 @@
     <h2 class="section-title">HOME</h2>
     <h3 class="section-sub">Profil Laboratorium</h3>
     <div class="profile">
-      <div class="profile-photo">Foto Laboratorium</div>
+      <img class="profile-photo" src="assets/images/Foto%20Lab.jpeg" alt="Kegiatan praktikum di Laboratorium IPA">
       <div class="profile-text">
         <h3>Tentang Laboratorium IPA</h3>
         <p>Laboratorium IPA SMPN 34 Surabaya adalah ruang praktikum yang digunakan siswa-siswi untuk melakukan percobaan mata pelajaran IPA secara langsung, mulai dari pengamatan biologi, reaksi sederhana kimia, hingga eksperimen fisika. Laboratorium ini dilengkapi dengan alat dan bahan praktikum yang dikelola oleh Kepala Laboratorium bersama guru mata pelajaran IPA, dengan tetap mengutamakan keselamatan dan kenyamanan selama kegiatan berlangsung.</p>
         <p>Melalui website ini, siswa maupun tamu dapat melihat struktur organisasi pengelola laboratorium, mengecek ketersediaan inventaris alat, mengajukan peminjaman, serta mempelajari SOP dan prosedur K3 sebelum menggunakan laboratorium.</p>
       </div>
       <div class="profile-side">
+        <img class="profile-side-photo" src="assets/images/Foto%20Lab%202.jpeg" alt="Suasana belajar di Laboratorium IPA">
         <div class="info-card">
           <h4>Informasi Laboratorium</h4>
           <dl>
@@ -358,10 +370,6 @@
       <img src="assets/images/struktur-organisasi-ipa.png" width="1210" height="1022" loading="lazy"
            alt="Struktur Organisasi Laboratorium IPA">
     </figure>
-    <figure class="org-figure">
-      <img src="assets/images/struktur-organisasi-lab.png" width="1210" height="1229" loading="lazy"
-           alt="Struktur Organisasi Laboratorium">
-    </figure>
   </div>
 </section>
 
@@ -370,11 +378,26 @@
   <div class="wrap">
     <h2 class="section-title">PEMINJAMAN</h2>
     <h3 class="section-sub">Daftar Pengajuan Peminjaman Alat</h3>
+    <div class="loan-admin">
+      <p class="loan-connection" id="loanConnection" role="status">Menghubungkan ke daftar peminjaman...</p>
+      <div>
+        <button type="button" class="btn-outline" id="assistantLoginToggle">Masuk asisten lab</button>
+        <button type="button" class="btn-outline hidden" id="assistantLogout">Keluar dari akun asisten</button>
+      </div>
+    </div>
+    <form class="assistant-login hidden" id="assistantLoginForm">
+      <div class="assistant-login-fields">
+        <input id="assistantEmail" type="email" autocomplete="username" placeholder="Email asisten" aria-label="Email asisten" required>
+        <input id="assistantPassword" type="password" autocomplete="current-password" placeholder="Kata sandi" aria-label="Kata sandi" required>
+        <button type="submit" class="btn-primary" id="assistantLoginSubmit">Masuk</button>
+      </div>
+      <p class="assistant-login-message" id="assistantAuthMessage" role="status"></p>
+    </form>
     <div class="table-wrap">
       <div class="table-scroll">
         <table id="peminjamanTable">
           <thead>
-            <tr><th>Nama</th><th>Institusi/Kelas</th><th>Alat</th><th>Jumlah</th><th>Keterangan</th><th>Waktu</th><th>Status</th></tr>
+            <tr><th>Nama</th><th>Institusi/Kelas</th><th>Alat</th><th>Jumlah</th><th>Keterangan</th><th>Waktu</th><th>Status</th><th class="hidden" id="verifyHeader">Verifikasi</th></tr>
           </thead>
           <tbody id="peminjamanBody"></tbody>
         </table>
@@ -4137,20 +4160,19 @@
 ]
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="data/supabase-config.js"></script>
 <script>
 (function(){
   'use strict';
   const $ = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
-
-  /* ================= DB (peminjaman, opsional) ================= */
-  let dbPromise = null;
-  function getDb(){
-    if(!dbPromise){
-      dbPromise = (window.claude && window.claude.use) ? window.claude.use('db').catch(()=>null) : Promise.resolve(null);
-    }
-    return dbPromise;
-  }
+  const supabaseConfig = window.LAB_SUPABASE_CONFIG || {};
+  const supabaseClient = window.supabase && supabaseConfig.url && supabaseConfig.anonKey
+    ? window.supabase.createClient(supabaseConfig.url, supabaseConfig.anonKey)
+    : null;
+  let assistantUser = null;
+  let currentLoanDocs = [];
 
   /* ================= NAV ================= */
   const navToggle = $('#navToggle');
@@ -4441,27 +4463,23 @@
     pinjamMsg.textContent = 'Mengirim pengajuan...';
     const request = {
       nama, institusi, item: itemLabel, jumlah, keterangan,
-      waktu: Date.now(), status: 'Menunggu'
     };
     try{
-      const db = await getDb();
-      if(db){
-        await db.collection('peminjaman').add(request);
-      }else{
-        const current = readLocalPeminjaman();
-        current.unshift(request);
-        saveLocalPeminjaman(current.slice(0,200));
-        renderPeminjaman(current.slice(0,200));
-      }
+      if(!supabaseClient) throw new Error('Database bersama belum dikonfigurasi.');
+      const {error} = await supabaseClient.from('peminjaman').insert(request);
+      if(error) throw error;
       pinjamMsg.textContent = 'Pengajuan berhasil dikirim. Data sudah masuk ke daftar Peminjaman.';
       pinjamMsg.className = 'form-msg ok';
+      await refreshPeminjaman();
       setTimeout(()=>{
         closeOverlay(pinjamOverlay);
         const sec = document.getElementById('peminjaman');
         if(sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
       }, 700);
     }catch(err){
-      pinjamMsg.textContent = 'Gagal mengirim pengajuan. Coba lagi.';
+      pinjamMsg.textContent = err.message === 'Database bersama belum dikonfigurasi.'
+        ? 'Database bersama belum dikonfigurasi. Silakan hubungi pengelola website.'
+        : 'Gagal mengirim pengajuan. Coba lagi.';
       pinjamMsg.className = 'form-msg err';
     }finally{
       btn.disabled = false;
@@ -4471,44 +4489,134 @@
   /* ================= TABEL PEMINJAMAN ================= */
   const pBody = $('#peminjamanBody');
   const pEmpty = $('#peminjamanEmpty');
-  const LOCAL_KEY = 'lab_peminjaman';
-
-  function readLocalPeminjaman(){
-    try{
-      const data = JSON.parse(localStorage.getItem(LOCAL_KEY) || '[]');
-      return Array.isArray(data) ? data : [];
-    }catch(e){ return []; }
-  }
-  function saveLocalPeminjaman(docs){
-    try{ localStorage.setItem(LOCAL_KEY, JSON.stringify(docs)); }catch(e){}
-  }
-
   function renderPeminjaman(docs){
+    currentLoanDocs = docs;
     pBody.replaceChildren();
+    const isAssistant = Boolean(assistantUser);
+    $('#verifyHeader').classList.toggle('hidden', !isAssistant);
     pEmpty.classList.toggle('hidden', docs.length > 0);
     docs.forEach(d=>{
       const tr = document.createElement('tr');
       const waktu = d.waktu ? new Date(d.waktu).toLocaleString('id-ID', {dateStyle:'medium', timeStyle:'short'}) : '-';
-      [d.nama||'-', d.institusi||'-', d.item||'-', String(d.jumlah||1), d.keterangan||'-', waktu].forEach(t=> tr.appendChild(el('td', null, t)));
+      [isAssistant ? d.nama||'-' : 'Disamarkan', isAssistant ? d.institusi||'-' : 'Disamarkan', d.item||'-', String(d.jumlah||1), isAssistant ? d.keterangan||'-' : '—', waktu].forEach(t=> tr.appendChild(el('td', null, t)));
       const st = document.createElement('td');
       st.appendChild(el('span', 'status-pill', d.status || 'Menunggu'));
       tr.appendChild(st);
+      const actions = document.createElement('td');
+      actions.className = isAssistant ? '' : 'hidden';
+      if(isAssistant && (d.status || 'Menunggu') === 'Menunggu'){
+        const group = el('div', 'loan-actions');
+        [['Disetujui','ACC','approve'], ['Ditolak','Tolak','reject']].forEach(([status,label,kind])=>{
+          const button = el('button', 'loan-action ' + kind, label);
+          button.type = 'button';
+          button.dataset.loanId = d.id;
+          button.dataset.loanStatus = status;
+          group.appendChild(button);
+        });
+        actions.appendChild(group);
+      }else if(isAssistant){
+        actions.textContent = d.diverifikasi_pada ? new Date(d.diverifikasi_pada).toLocaleString('id-ID', {dateStyle:'medium', timeStyle:'short'}) : 'Selesai';
+      }
+      tr.appendChild(actions);
       pBody.appendChild(tr);
     });
   }
 
-  (async function initPeminjamanFeed(){
-    const localDocs = readLocalPeminjaman();
-    renderPeminjaman(localDocs);
-    const db = await getDb();
-    if(!db) return;
+  function syncAssistantControls(){
+    $('#assistantLoginToggle').classList.toggle('hidden', Boolean(assistantUser));
+    $('#assistantLogout').classList.toggle('hidden', !assistantUser);
+    $('#assistantLoginForm').classList.add('hidden');
+    renderPeminjaman(currentLoanDocs);
+  }
+
+  async function refreshPeminjaman(){
+    const connection = $('#loanConnection');
+    if(!supabaseClient){
+      connection.textContent = 'Database bersama belum dikonfigurasi. Atur data/supabase-config.js dan jalankan skema SQL.';
+      renderPeminjaman([]);
+      return;
+    }
+    const source = assistantUser ? 'peminjaman' : 'peminjaman_publik';
+    const {data, error} = await supabaseClient.from(source).select('*').order('waktu', {ascending:false}).limit(100);
+    if(error){
+      connection.textContent = 'Tidak dapat memuat peminjaman bersama: ' + error.message;
+      return;
+    }
+    connection.textContent = assistantUser ? 'Terhubung sebagai asisten lab. Perubahan status dibagikan ke semua pengguna.' : 'Daftar bersama aktif. Identitas peminjam hanya dapat dilihat asisten lab.';
+    renderPeminjaman(data || []);
+  }
+
+  $('#assistantLoginToggle').addEventListener('click', ()=>{
+    if(!supabaseClient){
+      $('#loanConnection').textContent = 'Konfigurasi Supabase terlebih dahulu untuk masuk sebagai asisten.';
+      return;
+    }
+    $('#assistantLoginForm').classList.toggle('hidden');
+    $('#assistantEmail').focus();
+  });
+  $('#assistantLoginForm').addEventListener('submit', async e=>{
+    e.preventDefault();
+    const message = $('#assistantAuthMessage');
+    const button = $('#assistantLoginSubmit');
+    button.disabled = true;
+    message.textContent = 'Memeriksa akun...';
     try{
-      db.collection('peminjaman').orderBy('waktu','desc').limit(100).onSnapshot(
-        snap => renderPeminjaman(snap.docs.map(d=> d.data())),
-        () => renderPeminjaman(readLocalPeminjaman())
-      );
-    }catch(e){ renderPeminjaman(localDocs); }
-  })();
+      const {data, error} = await supabaseClient.auth.signInWithPassword({
+        email: $('#assistantEmail').value.trim(),
+        password: $('#assistantPassword').value
+      });
+      if(error) throw error;
+      if(data.user?.app_metadata?.lab_role !== 'assistant'){
+        await supabaseClient.auth.signOut();
+        throw new Error('Akun ini belum memiliki hak asisten lab.');
+      }
+      assistantUser = data.user;
+      message.textContent = '';
+      syncAssistantControls();
+      await refreshPeminjaman();
+    }catch(error){
+      message.textContent = error.message || 'Login gagal. Periksa email dan kata sandi.';
+    }finally{
+      button.disabled = false;
+    }
+  });
+  $('#assistantLogout').addEventListener('click', async ()=>{
+    await supabaseClient?.auth.signOut();
+    assistantUser = null;
+    syncAssistantControls();
+    await refreshPeminjaman();
+  });
+
+  pBody.addEventListener('click', async e=>{
+    const button = e.target.closest('[data-loan-id]');
+    if(!button || !assistantUser || !supabaseClient) return;
+    button.disabled = true;
+    const {error} = await supabaseClient.from('peminjaman').update({
+      status: button.dataset.loanStatus,
+      diverifikasi_oleh: assistantUser.id,
+      diverifikasi_pada: new Date().toISOString()
+    }).eq('id', button.dataset.loanId).eq('status', 'Menunggu');
+    if(error) $('#loanConnection').textContent = 'Gagal memperbarui status: ' + error.message;
+    else $('#loanConnection').textContent = 'Status peminjaman berhasil diperbarui dan dibagikan.';
+    await refreshPeminjaman();
+  });
+
+  if(supabaseClient){
+    supabaseClient.auth.getSession().then(({data})=>{
+      assistantUser = data.session?.user?.app_metadata?.lab_role === 'assistant' ? data.session.user : null;
+      syncAssistantControls();
+      refreshPeminjaman();
+    });
+    supabaseClient.auth.onAuthStateChange((_event, session)=>{
+      assistantUser = session?.user?.app_metadata?.lab_role === 'assistant' ? session.user : null;
+      syncAssistantControls();
+      setTimeout(refreshPeminjaman, 0);
+    });
+    setInterval(refreshPeminjaman, 15000);
+  }else{
+    refreshPeminjaman();
+    $('#assistantLoginToggle').disabled = true;
+  }
 })();
 </script>
 </body>
