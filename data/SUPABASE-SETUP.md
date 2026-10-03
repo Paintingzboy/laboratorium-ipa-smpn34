@@ -15,6 +15,8 @@
 	Role harus berada di `app_metadata`, bukan `user_metadata`, agar tidak dapat diubah sendiri oleh pemilik akun.
 6. Host website melalui HTTP/HTTPS, buka halaman peminjaman, lalu login menggunakan akun asisten tersebut.
 
-Pengunjung dapat mengirim pengajuan dan melihat item, jumlah, waktu, serta status yang sama. Nama, kelas, dan keterangan hanya terlihat setelah asisten lab login. Daftar diperbarui otomatis setiap 15 detik.
+Pengunjung dapat mengirim pengajuan dan melihat item, jumlah, waktu, serta status yang sama. Nama, kelas, dan keterangan hanya terlihat setelah asisten lab login. Asisten dapat menyetujui, menolak, atau menghapus pengajuan dengan konfirmasi. Daftar diperbarui otomatis setiap 15 detik.
+
+Jika skema sebelumnya sudah dijalankan, jalankan kembali seluruh isi `data/supabase-schema.sql` di SQL Editor untuk menambahkan izin hapus asisten.
 
 Pengajuan lama yang hanya tersimpan di `localStorage` browser tidak otomatis dipindahkan ke Supabase.
